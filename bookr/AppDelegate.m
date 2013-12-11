@@ -8,14 +8,49 @@
 
 #import "AppDelegate.h"
 
-#import <RestKit/RestKit.h>
+#import <RestKit/RKManagedObjectStore.h>
+
+#import "ViewController.h"
+#import "BookSearchListVC.h"
 
 @implementation AppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    
+    BookSearchListVC *viewController = [[BookSearchListVC alloc] initWithNibName:@"BookSearchListVC" bundle:nil];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    self.window.rootViewController = navController;
+    
+    //self.viewController = [[ViewController alloc] init];
+    //self.window.rootViewController = self.viewController;
+    //[_window addSubview:_viewController.tableView];
+    
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window makeKeyAndVisible];
     return YES;
+    
+    //ViewController *controller = [[ViewController alloc] initWithStyle:UITableViewStylePlain];;
+    //[_window setRootViewController:[[UINavigationController alloc] initWithRootViewController:controller]];
+    //UITableView *tableView = [[UITableView alloc] initWithFrame:(CGRect){{0,0},{300,300}}];
+    
+    //[_window addSubview:tableView];
+    //[_window setBackgroundColor:[UIColor  whiteColor]];
+    
+    //[(UINavigationController *)self.window.rootViewController popToRootViewControllerAnimated:YES];
+    
+    //[_window setRootViewController:controller];
+    //[_window makeKeyAndVisible];
+    
+    
+    //return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
