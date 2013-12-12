@@ -10,7 +10,6 @@
 
 #import <RestKit/RKManagedObjectStore.h>
 
-#import "ViewController.h"
 #import "BookSearchListVC.h"
 
 @implementation AppDelegate

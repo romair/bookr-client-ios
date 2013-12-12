@@ -17,7 +17,6 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        NSLog(@"bbbbbb");
     }
     return self;
 }
@@ -42,7 +41,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [conn makeSuperBookRequest:@"The%20Icon%20Handbook"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -83,7 +81,7 @@
     // Configure the cell...
     SuperBook *book = [bookArray objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[book title]];
-    [[cell detailTextLabel] setText:@"Author"];
+    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"(%@)",/*[book authors],*/[book year]]];
     
     return cell;
 }
@@ -146,14 +144,21 @@
  }
  
  */
+//SearchBarDelegates
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString *searchstring = [[searchBar text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    [conn makeSuperBookRequest:searchstring];
+    [searchBar resignFirstResponder];
+}
 
 //Bookr Delegate
 
 -(void)objectDidLoad:(NSArray *)array
 {
-    NSLog(@"%@",self.view);
     bookArray = [NSMutableArray arrayWithArray:array];
-    NSLog(@"%@",bookArray);
+    //NSLog(@"%@",bookArray);
     [self.tableView reloadData];
 }
 

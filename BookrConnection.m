@@ -61,7 +61,7 @@
                          parameters:nil
                             success:^(RKObjectRequestOperation * operaton, RKMappingResult *mappingResult)
      {
-         //NSLog(@"success: mappings: %@", mappingResult);
+         NSLog(@"success: mappings: %@", mappingResult);
          _booooks = [self mappingSuperBook:[mappingResult array]];
          [_delegate objectDidLoad:_booooks];
          
@@ -85,8 +85,8 @@
         
         [book setTitle:[dic objectForKey:@"title"]];
         [book setSubtitle:[dic objectForKey:@"subTitle"]];
-        [book setYear:[dic objectForKey:@"year"]];
         [book setIdent:[dic objectForKey:@"_id"]];
+        [book setYear:[dic objectForKey:@"year"]];
         [book setAuthors:[self mappingAuthors:[dic objectForKey:@"authors"]]];
         [book setIsbns:[self mappingISBNs:[dic objectForKey:@"isbns"]]];
         [bookArray addObject:book];

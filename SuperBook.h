@@ -2,7 +2,7 @@
 //  SuperBook.h
 //  bookr
 //
-//  Created by Steve Maahs on 10.12.13.
+//  Created by Steve Maahs on 11.12.13.
 //  Copyright (c) 2013 WSM. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSString * ident;
 @property (nonatomic, retain) NSString * subtitle;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSNumber * year;
+@property (nonatomic, retain) id year;
 @property (nonatomic, retain) NSSet *authors;
 @property (nonatomic, retain) NSSet *isbns;
 @end

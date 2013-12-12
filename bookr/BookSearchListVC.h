@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BookrConnection.h"
 
-@interface BookSearchListVC : UITableViewController <ObjectLoadDelegate>
+@interface BookSearchListVC : UITableViewController <ObjectLoadDelegate,UISearchBarDelegate>
 {
     BookrConnection *conn;
 }

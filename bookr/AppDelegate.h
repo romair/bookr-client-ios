@@ -11,11 +11,11 @@
 #import <CoreData/CoreData.h>
 #import <RestKit/RestKit.h>
 
-#import "ViewController.h"
+#import "BookSearchListVC.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) ViewController *viewController;
+@property (strong, nonatomic) BookSearchListVC *viewController;
 
 @end
