@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3F0E81CF1847C6EF00E766A7 /* Book.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E81CD1847C6EF00E766A7 /* Book.xcdatamodeld */; };
+		3F112AFC185F39EF00EF6EA4 /* BookDetailListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F112AFA185F39EF00EF6EA4 /* BookDetailListVC.m */; };
+		3F112AFD185F39EF00EF6EA4 /* BookDetailListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F112AFB185F39EF00EF6EA4 /* BookDetailListVC.xib */; };
 		3F18750E1857420E00E09F34 /* BookrConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F18750D1857420E00E09F34 /* BookrConnection.m */; };
-		3F552CE918577EE00069AAF2 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F552CE818577EE00069AAF2 /* Author.m */; };
-		3F552CEC18577EE10069AAF2 /* Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F552CEB18577EE10069AAF2 /* Thumbnail.m */; };
-		3F552CEF18577EE10069AAF2 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F552CEE18577EE10069AAF2 /* Book.m */; };
-		3F552CF218577EE10069AAF2 /* ISBN.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F552CF118577EE10069AAF2 /* ISBN.m */; };
+		3F443918186047FB004C0919 /* VersionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F443916186047FB004C0919 /* VersionDetailVC.m */; };
+		3F443919186047FB004C0919 /* VersionDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F443917186047FB004C0919 /* VersionDetailVC.xib */; };
+		3F44391F18604FEA004C0919 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44391E18604FEA004C0919 /* Author.m */; };
+		3F44392218604FEA004C0919 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44392118604FEA004C0919 /* Book.m */; };
+		3F44392518604FEA004C0919 /* SuperBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44392418604FEA004C0919 /* SuperBook.m */; };
+		3F44392818604FEA004C0919 /* Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44392718604FEA004C0919 /* Thumbnail.m */; };
+		3F44392B18604FEA004C0919 /* ISBN.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44392A18604FEA004C0919 /* ISBN.m */; };
 		3F552D0818584F350069AAF2 /* BookSearchListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F552D0618584F350069AAF2 /* BookSearchListVC.m */; };
 		3F552D0918584F350069AAF2 /* BookSearchListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F552D0718584F350069AAF2 /* BookSearchListVC.xib */; };
 		3F67C486183E61160012B064 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F67C47D183E5E9E0012B064 /* libRestKit.a */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -23,7 +28,6 @@
 		3F67C493183E70070012B064 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F67C492183E70070012B064 /* SystemConfiguration.framework */; };
 		3F67C495183E70120012B064 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F67C494183E70120012B064 /* QuartzCore.framework */; };
 		3F67C497183E701F0012B064 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F67C496183E701F0012B064 /* libxml2.dylib */; };
-		3F77E3881859159D00BE0723 /* SuperBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F77E3871859159D00BE0723 /* SuperBook.m */; };
 		3F8D0282182A8CCB00080411 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8D0281182A8CCB00080411 /* Foundation.framework */; };
 		3F8D0284182A8CCB00080411 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8D0283182A8CCB00080411 /* CoreGraphics.framework */; };
 		3F8D0286182A8CCB00080411 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8D0285182A8CCB00080411 /* UIKit.framework */; };
@@ -86,16 +90,24 @@
 
 /* Begin PBXFileReference section */
 		3F0E81CE1847C6EF00E766A7 /* Book.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book.xcdatamodel; sourceTree = "<group>"; };
+		3F112AF9185F39EF00EF6EA4 /* BookDetailListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailListVC.h; sourceTree = "<group>"; };
+		3F112AFA185F39EF00EF6EA4 /* BookDetailListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailListVC.m; sourceTree = "<group>"; };
+		3F112AFB185F39EF00EF6EA4 /* BookDetailListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailListVC.xib; sourceTree = "<group>"; };
 		3F18750C1857420E00E09F34 /* BookrConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookrConnection.h; sourceTree = "<group>"; };
 		3F18750D1857420E00E09F34 /* BookrConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookrConnection.m; sourceTree = "<group>"; };
-		3F552CE718577EE00069AAF2 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
-		3F552CE818577EE00069AAF2 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
-		3F552CEA18577EE10069AAF2 /* Thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thumbnail.h; sourceTree = "<group>"; };
-		3F552CEB18577EE10069AAF2 /* Thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thumbnail.m; sourceTree = "<group>"; };
-		3F552CED18577EE10069AAF2 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
-		3F552CEE18577EE10069AAF2 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
-		3F552CF018577EE10069AAF2 /* ISBN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISBN.h; sourceTree = "<group>"; };
-		3F552CF118577EE10069AAF2 /* ISBN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISBN.m; sourceTree = "<group>"; };
+		3F443915186047FB004C0919 /* VersionDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionDetailVC.h; sourceTree = "<group>"; };
+		3F443916186047FB004C0919 /* VersionDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionDetailVC.m; sourceTree = "<group>"; };
+		3F443917186047FB004C0919 /* VersionDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionDetailVC.xib; sourceTree = "<group>"; };
+		3F44391D18604FEA004C0919 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
+		3F44391E18604FEA004C0919 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		3F44392018604FEA004C0919 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		3F44392118604FEA004C0919 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		3F44392318604FEA004C0919 /* SuperBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperBook.h; sourceTree = "<group>"; };
+		3F44392418604FEA004C0919 /* SuperBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperBook.m; sourceTree = "<group>"; };
+		3F44392618604FEA004C0919 /* Thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thumbnail.h; sourceTree = "<group>"; };
+		3F44392718604FEA004C0919 /* Thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thumbnail.m; sourceTree = "<group>"; };
+		3F44392918604FEA004C0919 /* ISBN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISBN.h; sourceTree = "<group>"; };
+		3F44392A18604FEA004C0919 /* ISBN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISBN.m; sourceTree = "<group>"; };
 		3F552D0518584F350069AAF2 /* BookSearchListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchListVC.h; sourceTree = "<group>"; };
 		3F552D0618584F350069AAF2 /* BookSearchListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchListVC.m; sourceTree = "<group>"; };
 		3F552D0718584F350069AAF2 /* BookSearchListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookSearchListVC.xib; sourceTree = "<group>"; };
@@ -107,8 +119,6 @@
 		3F67C492183E70070012B064 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3F67C494183E70120012B064 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3F67C496183E701F0012B064 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		3F77E3861859159D00BE0723 /* SuperBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperBook.h; sourceTree = "<group>"; };
-		3F77E3871859159D00BE0723 /* SuperBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperBook.m; sourceTree = "<group>"; };
 		3F8D027E182A8CCB00080411 /* bookr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8D0281182A8CCB00080411 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F8D0283182A8CCB00080411 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -164,17 +174,17 @@
 		3F0E81D01847C6FE00E766A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3F77E3861859159D00BE0723 /* SuperBook.h */,
-				3F77E3871859159D00BE0723 /* SuperBook.m */,
 				3F0E81CD1847C6EF00E766A7 /* Book.xcdatamodeld */,
-				3F552CF018577EE10069AAF2 /* ISBN.h */,
-				3F552CF118577EE10069AAF2 /* ISBN.m */,
-				3F552CED18577EE10069AAF2 /* Book.h */,
-				3F552CEE18577EE10069AAF2 /* Book.m */,
-				3F552CEA18577EE10069AAF2 /* Thumbnail.h */,
-				3F552CEB18577EE10069AAF2 /* Thumbnail.m */,
-				3F552CE718577EE00069AAF2 /* Author.h */,
-				3F552CE818577EE00069AAF2 /* Author.m */,
+				3F44392318604FEA004C0919 /* SuperBook.h */,
+				3F44392418604FEA004C0919 /* SuperBook.m */,
+				3F44392918604FEA004C0919 /* ISBN.h */,
+				3F44392A18604FEA004C0919 /* ISBN.m */,
+				3F44392618604FEA004C0919 /* Thumbnail.h */,
+				3F44392718604FEA004C0919 /* Thumbnail.m */,
+				3F44392018604FEA004C0919 /* Book.h */,
+				3F44392118604FEA004C0919 /* Book.m */,
+				3F44391D18604FEA004C0919 /* Author.h */,
+				3F44391E18604FEA004C0919 /* Author.m */,
 				3FFBB277185689D900AAFFF7 /* SuperBookWrapper.h */,
 				3FFBB278185689D900AAFFF7 /* SuperBookWrapper.m */,
 			);
@@ -257,6 +267,12 @@
 				3F552D0518584F350069AAF2 /* BookSearchListVC.h */,
 				3F552D0618584F350069AAF2 /* BookSearchListVC.m */,
 				3F552D0718584F350069AAF2 /* BookSearchListVC.xib */,
+				3F112AF9185F39EF00EF6EA4 /* BookDetailListVC.h */,
+				3F112AFA185F39EF00EF6EA4 /* BookDetailListVC.m */,
+				3F112AFB185F39EF00EF6EA4 /* BookDetailListVC.xib */,
+				3F443915186047FB004C0919 /* VersionDetailVC.h */,
+				3F443916186047FB004C0919 /* VersionDetailVC.m */,
+				3F443917186047FB004C0919 /* VersionDetailVC.xib */,
 				3F8D0299182A8CCB00080411 /* Images.xcassets */,
 				3F187508185741DD00E09F34 /* Server */,
 				3F552CF61857B5680069AAF2 /* View */,
@@ -412,7 +428,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F112AFD185F39EF00EF6EA4 /* BookDetailListVC.xib in Resources */,
 				3F8D029A182A8CCB00080411 /* Images.xcassets in Resources */,
+				3F443919186047FB004C0919 /* VersionDetailVC.xib in Resources */,
 				3F552D0918584F350069AAF2 /* BookSearchListVC.xib in Resources */,
 				3F8D028C182A8CCB00080411 /* InfoPlist.strings in Resources */,
 			);
@@ -433,15 +451,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F44392B18604FEA004C0919 /* ISBN.m in Sources */,
+				3F44392218604FEA004C0919 /* Book.m in Sources */,
+				3F44391F18604FEA004C0919 /* Author.m in Sources */,
+				3F44392818604FEA004C0919 /* Thumbnail.m in Sources */,
+				3F443918186047FB004C0919 /* VersionDetailVC.m in Sources */,
 				3FFBB279185689D900AAFFF7 /* SuperBookWrapper.m in Sources */,
 				3F552D0818584F350069AAF2 /* BookSearchListVC.m in Sources */,
+				3F44392518604FEA004C0919 /* SuperBook.m in Sources */,
 				3F18750E1857420E00E09F34 /* BookrConnection.m in Sources */,
 				3F8D0292182A8CCB00080411 /* AppDelegate.m in Sources */,
-				3F77E3881859159D00BE0723 /* SuperBook.m in Sources */,
-				3F552CF218577EE10069AAF2 /* ISBN.m in Sources */,
-				3F552CEF18577EE10069AAF2 /* Book.m in Sources */,
-				3F552CE918577EE00069AAF2 /* Author.m in Sources */,
-				3F552CEC18577EE10069AAF2 /* Thumbnail.m in Sources */,
+				3F112AFC185F39EF00EF6EA4 /* BookDetailListVC.m in Sources */,
 				3F8D028E182A8CCB00080411 /* main.m in Sources */,
 				3F0E81CF1847C6EF00E766A7 /* Book.xcdatamodeld in Sources */,
 			);

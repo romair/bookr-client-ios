@@ -14,6 +14,8 @@
     BookrConnection *conn;
 }
 
-@property NSMutableArray *bookArray;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBarView;
+
+@property (strong,nonatomic) NSMutableArray * bookArray;
 
 @end

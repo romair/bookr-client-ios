@@ -21,10 +21,14 @@
 {
     RKObjectManager* objectManager;
 }
+
 @property (strong, nonatomic) NSManagedObjectContext *moContext;
 @property (strong, nonatomic) NSArray *booooks;
 @property (weak, nonatomic) id <ObjectLoadDelegate> delegate;
 
++(BookrConnection *)sharedInstance;
+
 -(void)makeSuperBookRequest:(NSString *)searchPath;
+-(void)makeVersionRequest:(NSString *)searchPath;
 
 @end

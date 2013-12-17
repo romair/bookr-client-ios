@@ -7,6 +7,9 @@
 //
 
 #import "BookSearchListVC.h"
+#import "BookDetailListVC.h"
+
+#import "Author.h"
 
 @implementation BookSearchListVC
 
@@ -25,8 +28,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        conn = [[BookrConnection alloc] init];
-        [conn setDelegate:self];
+        conn = [BookrConnection sharedInstance];
     }
     return self;
 }
@@ -35,17 +37,25 @@
 {
     [[self navigationController] setTitle:@"bookr"];
     [self setTitle:@"bookr"];
+    
+    [conn setDelegate:self];
+    
     bookArray = [NSMutableArray array];
+    
+    [_searchBarView becomeFirstResponder];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = YES;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,7 +91,12 @@
     // Configure the cell...
     SuperBook *book = [bookArray objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[book title]];
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"(%@)",/*[book authors],*/[book year]]];
+    
+    NSMutableString * authors = [NSMutableString string];
+    for (Author *author in [book authors]) {
+        [authors appendFormat:@"%@, ",author.name];
+    }
+    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ (%@)",authors,[book year]]];
     
     return cell;
 }
@@ -127,7 +142,7 @@
  }
  */
 
-/*
+
  #pragma mark - Table view delegate
  
  // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
@@ -135,7 +150,8 @@
  {
  // Navigation logic may go here, for example:
  // Create the next view controller.
- <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+ BookDetailListVC *detailViewController = [[BookDetailListVC alloc] initWithNibName:@"BookDetailListVC" bundle:nil];
+     [detailViewController setSuperBook:[bookArray objectAtIndex:indexPath.row]];
  
  // Pass the selected object to the new view controller.
  
@@ -143,7 +159,7 @@
  [self.navigationController pushViewController:detailViewController animated:YES];
  }
  
- */
+
 //SearchBarDelegates
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar

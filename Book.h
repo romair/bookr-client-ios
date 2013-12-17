@@ -2,7 +2,7 @@
 //  Book.h
 //  bookr
 //
-//  Created by Steve Maahs on 10.12.13.
+//  Created by Steve Maahs on 17.12.13.
 //  Copyright (c) 2013 WSM. All rights reserved.
 //
 
@@ -18,9 +18,9 @@
 @property (nonatomic, retain) NSString * superBook;
 @property (nonatomic, retain) NSString * textSnippet;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSNumber * year;
+@property (nonatomic, retain) id year;
 @property (nonatomic, retain) NSSet *authors;
-@property (nonatomic, retain) NSSet *isbn;
+@property (nonatomic, retain) ISBN *isbn;
 @property (nonatomic, retain) Thumbnail *thumbnail;
 @end
 
@@ -30,10 +30,5 @@
 - (void)removeAuthorsObject:(Author *)value;
 - (void)addAuthors:(NSSet *)values;
 - (void)removeAuthors:(NSSet *)values;
-
-- (void)addIsbnObject:(ISBN *)value;
-- (void)removeIsbnObject:(ISBN *)value;
-- (void)addIsbn:(NSSet *)values;
-- (void)removeIsbn:(NSSet *)values;
 
 @end

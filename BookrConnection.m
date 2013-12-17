@@ -13,7 +13,17 @@
 
 @implementation BookrConnection
 
+static BookrConnection  *sharedInstance = nil;
+
 @synthesize moContext;
+
++(BookrConnection *)sharedInstance
+{
+    if (sharedInstance == nil) {
+        sharedInstance = [[BookrConnection alloc] init];
+    }
+    return sharedInstance;
+}
 
 - (id)init
 {
@@ -27,7 +37,8 @@
 
 -(void)setupManager
 {
-    objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://192.168.178.14:1337"]];
+    //objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://192.168.178.14:1337"]];
+    objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://172.20.10.4:3000"]];
     NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     objectManager.managedObjectStore = managedObjectStore;
@@ -57,13 +68,42 @@
     [objectManager addResponseDescriptor:responseDescriptor];
     
     
-    [objectManager getObjectsAtPath:[NSString stringWithFormat:@"/search/%@/more",searchPath]
+    [objectManager getObjectsAtPath:[NSString stringWithFormat:@"/search/%@",searchPath]
                          parameters:nil
                             success:^(RKObjectRequestOperation * operaton, RKMappingResult *mappingResult)
      {
          NSLog(@"success: mappings: %@", mappingResult);
          _booooks = [self mappingSuperBook:[mappingResult array]];
          [_delegate objectDidLoad:_booooks];
+         
+     }
+                            failure:^(RKObjectRequestOperation * operaton, NSError * error)
+     {
+         NSLog (@"failure: operation: %@ \n\nerror: %@", operaton, error);
+         //NSLog(@"%@",operaton.HTTPRequestOperation.response);
+     }];
+}
+
+-(void)makeVersionRequest:(NSString *)searchPath
+{
+    RKObjectMapping *objMapping = [RKObjectMapping mappingForClass:[SuperBookWrapper class]];
+    [objMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:nil toKeyPath:@"superBookDict"]];
+    
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:objMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    
+    [objectManager addResponseDescriptor:responseDescriptor];
+    
+    
+    [objectManager getObjectsAtPath:[NSString stringWithFormat:@"/book/version/%@",searchPath]
+                         parameters:nil
+                            success:^(RKObjectRequestOperation * operaton, RKMappingResult *mappingResult)
+     {
+         NSLog(@"success: mappings: %@", mappingResult);
+         NSLog(@"%@",[[mappingResult.array objectAtIndex:0] superBookDict]);
+        // NSLog(@"%@",[self mappingBook:[mappingResult array]]);
+         //_booooks = [self mappingSuperBook:[mappingResult array]];
+         [_delegate objectDidLoad:[self mappingBook:[mappingResult array]]];
          
      }
                             failure:^(RKObjectRequestOperation * operaton, NSError * error)
@@ -95,6 +135,30 @@
     return bookArray;
 }
 
+-(NSArray *)mappingBook:(NSArray *)superbooks
+{
+    NSDictionary *dic;
+    NSMutableArray *bookArray = [NSMutableArray array];
+    for (SuperBookWrapper *wrappedBook in superbooks) {
+        dic = [wrappedBook superBookDict];
+        
+        Book *book = [NSEntityDescription insertNewObjectForEntityForName:@"Book" inManagedObjectContext:moContext];
+        
+        [book setTitle:[dic objectForKey:@"title"]];
+        [book setSubtitle:[dic objectForKey:@"subTitle"]];
+        [book setPublisher:[dic objectForKey:@"publisher"]];
+        [book setSuperBook:[dic objectForKey:@"superBook"]];
+        [book setYear:[dic objectForKey:@"year"]];
+        [book setAuthors:[self mappingAuthors:[dic objectForKey:@"authors"]]];
+        [book setIsbn:[self mappingISBN:[dic objectForKey:@"isbn"]]];
+        [book setThumbnail:[self mappingthumbnail:[dic objectForKey:@"thumbnail"]]];
+        [book setTextSnippet:[dic objectForKey:@"textSnippet"]];
+        [bookArray addObject:book];
+    }
+    
+    return bookArray;
+}
+
 -(NSSet *)mappingAuthors:(NSArray *)authors
 {
     NSMutableSet *authorSet = [NSMutableSet set];
@@ -108,6 +172,15 @@
     return authorSet;
 }
 
+-(ISBN *)mappingISBN:(NSDictionary *)isbns
+{
+    ISBN *isbn = [NSEntityDescription insertNewObjectForEntityForName:@"ISBN" inManagedObjectContext:moContext];
+    [isbn setIsbn10:[isbns objectForKey:@"isbn10"]];
+    [isbn setIsbn13:[isbns objectForKey:@"isbn13"]];
+    
+    return isbn;
+}
+
 -(NSSet *)mappingISBNs:(NSArray *)isbns
 {
     NSMutableSet *isbnSet = [[NSMutableSet alloc] init];
@@ -119,6 +192,15 @@
     }
     
     return isbnSet;
+}
+
+-(Thumbnail *)mappingthumbnail:(NSDictionary *)thumbnails
+{
+    Thumbnail *thumbnail = [NSEntityDescription insertNewObjectForEntityForName:@"Thumbnail" inManagedObjectContext:moContext];
+    [thumbnail setSmall:[thumbnails objectForKey:@"small"]];
+    [thumbnail setNormal:[thumbnails objectForKey:@"normal"]];
+    
+    return thumbnail;
 }
 
 @end
