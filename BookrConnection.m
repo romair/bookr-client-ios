@@ -37,8 +37,8 @@ static BookrConnection  *sharedInstance = nil;
 
 -(void)setupManager
 {
-    //objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://192.168.178.14:1337"]];
-    objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://172.20.10.4:3000"]];
+    objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://192.168.178.14:1337"]];
+    //objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://172.20.10.4:3000"]];
     NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     objectManager.managedObjectStore = managedObjectStore;
@@ -68,7 +68,7 @@ static BookrConnection  *sharedInstance = nil;
     [objectManager addResponseDescriptor:responseDescriptor];
     
     
-    [objectManager getObjectsAtPath:[NSString stringWithFormat:@"/search/%@",searchPath]
+    [objectManager getObjectsAtPath:[NSString stringWithFormat:@"/search/%@%@",searchPath,@"/more"]
                          parameters:nil
                             success:^(RKObjectRequestOperation * operaton, RKMappingResult *mappingResult)
      {
@@ -153,6 +153,7 @@ static BookrConnection  *sharedInstance = nil;
         [book setIsbn:[self mappingISBN:[dic objectForKey:@"isbn"]]];
         [book setThumbnail:[self mappingthumbnail:[dic objectForKey:@"thumbnail"]]];
         [book setTextSnippet:[dic objectForKey:@"textSnippet"]];
+        [book setQuality:[NSNumber numberWithInt:[(NSString *)[dic objectForKey:@"quality"] intValue]]];
         [bookArray addObject:book];
     }
     

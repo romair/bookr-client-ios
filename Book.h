@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSString * textSnippet;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) id year;
+@property (nonatomic, retain) NSNumber * quality;
 @property (nonatomic, retain) NSSet *authors;
 @property (nonatomic, retain) ISBN *isbn;
 @property (nonatomic, retain) Thumbnail *thumbnail;

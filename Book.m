@@ -20,6 +20,7 @@
 @dynamic textSnippet;
 @dynamic title;
 @dynamic year;
+@dynamic quality;
 @dynamic authors;
 @dynamic isbn;
 @dynamic thumbnail;

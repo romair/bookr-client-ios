@@ -117,7 +117,7 @@
     // Configure the cell...
     Book * bookVersion = (Book *)[versions objectAtIndex:[indexPath row]-1];
     [[cell textLabel] setText:[bookVersion publisher]];
-    [[cell detailTextLabel] setText:[[bookVersion isbn] isbn13]];
+    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ - %@",[[bookVersion isbn] isbn13], [[bookVersion quality] stringValue]]];
     
     return cell;
 }

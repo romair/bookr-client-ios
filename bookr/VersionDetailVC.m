@@ -32,7 +32,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [_titleLabel setText:[book title]];
-    [_subTitleLabel setText:[book subtitle]];
+    [_subTitleLabel setText:[[book quality] stringValue]];
     NSMutableString *authorString = [NSMutableString string];
     for (Author *author in [book authors]) {
         [authorString appendFormat:@"%@, ",author.name];
