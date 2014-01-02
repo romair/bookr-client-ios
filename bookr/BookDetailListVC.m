@@ -194,9 +194,12 @@
 
 -(void)objectDidLoad:(NSArray *)array
 {
-    [versions addObject:[array objectAtIndex:0]];
+    Book *book = [array objectAtIndex:0];
+    if ([[book quality] intValue] > 0) {
+        [versions addObject:book];
     
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[versions count] inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[versions count] inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+    }    
     
 }
 

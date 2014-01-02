@@ -10,6 +10,7 @@
 
 #import "Book.h"
 #import "Author.h"
+#import "Thumbnail.h"
 
 @interface VersionDetailVC : UIViewController
 
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *publischerYearLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorsLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textSnippetTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *bookImage;
 
 @property (strong,nonatomic) Book * book;
 

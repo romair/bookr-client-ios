@@ -12,6 +12,8 @@
 @interface BookSearchListVC : UITableViewController <ObjectLoadDelegate,UISearchBarDelegate>
 {
     BookrConnection *conn;
+    
+    Boolean lookForMore;
 }
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBarView;

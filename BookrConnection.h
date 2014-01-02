@@ -28,7 +28,7 @@
 
 +(BookrConnection *)sharedInstance;
 
--(void)makeSuperBookRequest:(NSString *)searchPath;
+-(void)makeSuperBookRequest:(NSString *)searchPath more:(Boolean)isMore;
 -(void)makeVersionRequest:(NSString *)searchPath;
 
 @end

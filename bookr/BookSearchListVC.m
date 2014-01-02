@@ -29,6 +29,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         conn = [BookrConnection sharedInstance];
+        lookForMore = NO;
     }
     return self;
 }
@@ -68,7 +69,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -77,7 +77,9 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [bookArray count];
+    NSInteger count = [bookArray count];
+    count += lookForMore ? 1 : 0;
+    return  count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,7 +89,11 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
+    NSLog(@"%ld",[indexPath row]);
+    if ([indexPath row] == [bookArray count]) {
+        [[cell textLabel] setText:@"more ..."];
+        [[cell detailTextLabel] setText:@""];
+    } else {
     // Configure the cell...
     SuperBook *book = [bookArray objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[book title]];
@@ -97,7 +103,7 @@
         [authors appendFormat:@"%@, ",author.name];
     }
     [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ (%@)",authors,[book year]]];
-    
+    }
     return cell;
 }
 
@@ -146,18 +152,24 @@
  #pragma mark - Table view delegate
  
  // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
- - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Navigation logic may go here, for example:
- // Create the next view controller.
- BookDetailListVC *detailViewController = [[BookDetailListVC alloc] initWithNibName:@"BookDetailListVC" bundle:nil];
-     [detailViewController setSuperBook:[bookArray objectAtIndex:indexPath.row]];
- 
- // Pass the selected object to the new view controller.
- 
- // Push the view controller.
- [self.navigationController pushViewController:detailViewController animated:YES];
- }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([indexPath row] == [bookArray count]) {
+        NSString *searchstring = [[_searchBarView text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        [conn makeSuperBookRequest:searchstring more:YES];
+        lookForMore = NO;
+    } else {
+        // Navigation logic may go here, for example:
+        // Create the next view controller.
+        BookDetailListVC *detailViewController = [[BookDetailListVC alloc] initWithNibName:@"BookDetailListVC" bundle:nil];
+        [detailViewController setSuperBook:[bookArray objectAtIndex:indexPath.row]];
+        
+        // Pass the selected object to the new view controller.
+        
+        // Push the view controller.
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
+}
  
 
 //SearchBarDelegates
@@ -165,7 +177,8 @@
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSString *searchstring = [[searchBar text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    [conn makeSuperBookRequest:searchstring];
+    [conn makeSuperBookRequest:searchstring more:NO];
+    lookForMore = YES;
     [searchBar resignFirstResponder];
 }
 
@@ -175,6 +188,7 @@
 {
     bookArray = [NSMutableArray arrayWithArray:array];
     //NSLog(@"%@",bookArray);
+    
     [self.tableView reloadData];
 }
 

@@ -40,6 +40,12 @@
     [_authorsLabel setText:authorString];
     [_publischerYearLabel setText:[NSString stringWithFormat:@"%@ (%@)",[book publisher],[book year]]];
     [_textSnippetTextView setText:[book textSnippet]];
+    
+    UIImage* myImage = [UIImage imageWithData:
+                        [NSData dataWithContentsOfURL:
+                         [NSURL URLWithString: [[book thumbnail] normal]]]];
+    [_bookImage sizeThatFits:[myImage size]];
+    [_bookImage setImage:myImage];
 }
 
 - (void)didReceiveMemoryWarning

@@ -57,7 +57,7 @@ static BookrConnection  *sharedInstance = nil;
     }
 }
 
--(void)makeSuperBookRequest:(NSString *)searchPath
+-(void)makeSuperBookRequest:(NSString *)searchPath more:(Boolean)isMore
 {
     RKObjectMapping *objMapping = [RKObjectMapping mappingForClass:[SuperBookWrapper class]];
     [objMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:nil toKeyPath:@"superBookDict"]];
@@ -67,8 +67,13 @@ static BookrConnection  *sharedInstance = nil;
     
     [objectManager addResponseDescriptor:responseDescriptor];
     
+    NSString *moreString = @"";
+    if (isMore) {
+        moreString = @"/more";
+    }
     
-    [objectManager getObjectsAtPath:[NSString stringWithFormat:@"/search/%@%@",searchPath,@"/more"]
+    
+    [objectManager getObjectsAtPath:[NSString stringWithFormat:@"/search/%@%@",searchPath,moreString]
                          parameters:nil
                             success:^(RKObjectRequestOperation * operaton, RKMappingResult *mappingResult)
      {
