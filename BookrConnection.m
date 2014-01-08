@@ -37,7 +37,7 @@ static BookrConnection  *sharedInstance = nil;
 
 -(void)setupManager
 {
-    objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://192.168.178.14:1337"]];
+    objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://54.217.229.167"]];
     //objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://172.20.10.4:3000"]];
     NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
