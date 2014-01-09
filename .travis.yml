@@ -1,4 +1,4 @@
 language: objective-c
 xcode_project: bookr.xcodeproj
 xcode_scheme: bookr
-script: xctool -workspace bookr.xcworkspace -scheme bookr test
+script: xctool -workspace bookr.xcodeproj -scheme bookr test
