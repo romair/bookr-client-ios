@@ -4,7 +4,7 @@ xcode_scheme: bookrTests
 before_install:
     - brew update
     - brew uninstall xctool && brew install xctool
-    - gem install bundler
+    - brew bundle
 install:
     - bundle install
     - bundle exec pod install
