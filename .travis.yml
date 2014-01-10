@@ -3,6 +3,6 @@ before_install:
     - brew update
     - brew uninstall xctool && brew install xctool
 install:
-    - bundle install
+    - gem install rubygems-bundler
     - bundle exec pod install
 script: bundle exec rake test
