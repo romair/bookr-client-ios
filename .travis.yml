@@ -3,8 +3,8 @@ xcode_project: bookr.xcodeproj
 xcode_scheme: bookrTests
 before_install:
     - brew update
-    - brew uninstall xctool && brew install xctool
     - brew bundle
+    - brew uninstall xctool && brew install xctool
 install:
     - bundle install
     - bundle exec pod install
