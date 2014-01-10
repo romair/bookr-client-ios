@@ -617,6 +617,7 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../../RestKit/Build/Headers\"",
 				);
 				INFOPLIST_FILE = "bookr/bookr-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -643,6 +644,7 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../../RestKit/Build/Headers\"",
 				);
 				INFOPLIST_FILE = "bookr/bookr-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

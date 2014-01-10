@@ -117,7 +117,7 @@
     // Configure the cell...
     Book * bookVersion = (Book *)[versions objectAtIndex:[indexPath row]-1];
     [[cell textLabel] setText:[bookVersion publisher]];
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ - %@",[[bookVersion isbn] isbn13], [[bookVersion quality] stringValue]]];
+    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@",[[bookVersion isbn] isbn13]/*, [[bookVersion quality] stringValue]*/]];
     
     return cell;
 }
@@ -198,13 +198,10 @@
     if ([[book quality] intValue] > 0) {
         [versions addObject:book];
     
-        //[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[versions count] inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
-        
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"quality" ascending:NO];
         [versions sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
         
-        [self.tableView reloadData];
-        
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[versions indexOfObject:book] inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
     }
     
 }
