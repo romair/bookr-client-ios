@@ -1,8 +1,8 @@
 language: objective-c
+xcode_project: bookr.xcodeproj
+xcode_scheme: bookrTests
 before_install:
     - brew update
-    - brew uninstall xctool && brew install xctool
-install:
-    - gem install rubygems-bundler
-    - bundle exec pod install
+    - brew uninstall xctool
+    - brew install xctool
 script: bundle exec rake test
