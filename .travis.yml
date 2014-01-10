@@ -4,5 +4,6 @@
 language: objective-c
 before_install:
     - brew update
+    - brew uninstall xctool
     - brew install xctool
 script: xctool -project bookr.xcodeproj -scheme bookr test
