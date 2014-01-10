@@ -1,2 +1,8 @@
+#language: objective-c
+#xcode_project: bookr.xcodeproj
+#xcode_scheme: bookrTests
 language: objective-c
-xcode_scheme: bookrTests
+before_install:
+    - brew update
+    - brew install xctool
+script: xctool -project bookr.xcodeproj -scheme bookr test
