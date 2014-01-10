@@ -198,8 +198,14 @@
     if ([[book quality] intValue] > 0) {
         [versions addObject:book];
     
-        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[versions count] inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
-    }    
+        //[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[versions count] inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"quality" ascending:NO];
+        [versions sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        
+        [self.tableView reloadData];
+        
+    }
     
 }
 
