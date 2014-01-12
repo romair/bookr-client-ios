@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0D911118807CAA00A9768F /* VersionDetailPreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D911018807CAA00A9768F /* VersionDetailPreView.m */; };
 		3F0E81CF1847C6EF00E766A7 /* Book.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E81CD1847C6EF00E766A7 /* Book.xcdatamodeld */; };
 		3F112AFC185F39EF00EF6EA4 /* BookDetailListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F112AFA185F39EF00EF6EA4 /* BookDetailListVC.m */; };
 		3F112AFD185F39EF00EF6EA4 /* BookDetailListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F112AFB185F39EF00EF6EA4 /* BookDetailListVC.xib */; };
@@ -91,6 +92,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F0D910F18807CAA00A9768F /* VersionDetailPreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionDetailPreView.h; sourceTree = "<group>"; };
+		3F0D911018807CAA00A9768F /* VersionDetailPreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionDetailPreView.m; sourceTree = "<group>"; };
 		3F0E81CE1847C6EF00E766A7 /* Book.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book.xcdatamodel; sourceTree = "<group>"; };
 		3F112AF9185F39EF00EF6EA4 /* BookDetailListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailListVC.h; sourceTree = "<group>"; };
 		3F112AFA185F39EF00EF6EA4 /* BookDetailListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailListVC.m; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 				3F112AFA185F39EF00EF6EA4 /* BookDetailListVC.m */,
 				3F443915186047FB004C0919 /* VersionDetailVC.h */,
 				3F443916186047FB004C0919 /* VersionDetailVC.m */,
+				3F0D910F18807CAA00A9768F /* VersionDetailPreView.h */,
+				3F0D911018807CAA00A9768F /* VersionDetailPreView.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 				3F8D0292182A8CCB00080411 /* AppDelegate.m in Sources */,
 				3F112AFC185F39EF00EF6EA4 /* BookDetailListVC.m in Sources */,
 				3F8D028E182A8CCB00080411 /* main.m in Sources */,
+				3F0D911118807CAA00A9768F /* VersionDetailPreView.m in Sources */,
 				3F0E81CF1847C6EF00E766A7 /* Book.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
