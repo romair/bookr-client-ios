@@ -71,7 +71,7 @@ static BookrConnection  *sharedInstance = nil;
     if (isMore) {
         moreString = @"/more";
     }
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     [objectManager getObjectsAtPath:[NSString stringWithFormat:@"/search/%@%@",searchPath,moreString]
                          parameters:nil
@@ -80,12 +80,14 @@ static BookrConnection  *sharedInstance = nil;
          NSLog(@"success: mappings: %@", mappingResult);
          _booooks = [self mappingSuperBook:[mappingResult array]];
          [_delegate objectDidLoad:_booooks];
+         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
          
      }
                             failure:^(RKObjectRequestOperation * operaton, NSError * error)
      {
          NSLog (@"failure: operation: %@ \n\nerror: %@", operaton, error);
          //NSLog(@"%@",operaton.HTTPRequestOperation.response);
+         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
      }];
 }
 
@@ -99,6 +101,7 @@ static BookrConnection  *sharedInstance = nil;
     
     [objectManager addResponseDescriptor:responseDescriptor];
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     [objectManager getObjectsAtPath:[NSString stringWithFormat:@"/book/version/%@",searchPath]
                          parameters:nil
@@ -110,10 +113,12 @@ static BookrConnection  *sharedInstance = nil;
          //_booooks = [self mappingSuperBook:[mappingResult array]];
          [_delegate objectDidLoad:[self mappingBook:[mappingResult array]]];
          
+         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
      }
                             failure:^(RKObjectRequestOperation * operaton, NSError * error)
      {
          NSLog (@"failure: operation: %@ \n\nerror: %@", operaton, error);
+         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
          //NSLog(@"%@",operaton.HTTPRequestOperation.response);
      }];
 }

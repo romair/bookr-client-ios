@@ -4,6 +4,5 @@ before_install:
     - brew uninstall xctool
     - brew install xctool
     - git submodule update --init --recursive
-#install: make get-deps
 script:
     - xctool -project bookr.xcodeproj -scheme bookr -sdk iphonesimulator7.0 -arch i386 -configuration Debug ONLY_ACTIVE_ARCH=NO clean build-tests run-tests

@@ -321,7 +321,7 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
 }
 
 /**
-  * Diese Methode lässt den View auf seinem SuperView verschwinden
+  * Diese Methode lässt den View auf seinem SuperView verschwinden und entfernt ihn aus der Hierarchie
   * @return nichts
   *
   */
@@ -347,6 +347,7 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     
     
 }
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
