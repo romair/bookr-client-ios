@@ -6,5 +6,5 @@ before_install:
     - brew update
     - brew uninstall xctool
     - brew install xctool
-install: make get-deps
-script: xctool -project bookr.xcodeproj -scheme bookr test
+#install: make get-deps
+script: xcodebuild -workspace RestKit.xcworkspace -scheme RestKit -sdk iphoneos clean build && xctool -project bookr.xcodeproj -scheme bookr test
