@@ -11,10 +11,17 @@
 
 #import "Author.h"
 
+/**
+ * Dieser Klasse entspricht dem Controller fuer die
+ * Suchliste und das anzeigen der Superbuecher
+ */
 @implementation BookSearchListVC
 
 @synthesize bookArray;
 
+/**
+ *
+ */
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -33,7 +40,11 @@
     }
     return self;
 }
-
+/**
+ * UIViewController Methode
+ * setzt hier zusaetzlich den Title
+ * und die BookrConnection delegate neu
+ */
 -(void)viewWillAppear:(BOOL)animated
 {
     [[self navigationController] setTitle:@"bookr"];
@@ -46,13 +57,15 @@
     [_searchBarView becomeFirstResponder];
     [self.tableView reloadData];
 }
-
+/**
+ * UIViewController Methode
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = YES;
+    //self.clearsSelectionOnViewWillAppear = YES;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -66,22 +79,32 @@
 }
 
 #pragma mark - Table view data source
-
+/**
+ * UITableView-Methode
+ * Gibt die Anzahl der Sektion wieder
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
     return 1;
 }
-
+/**
+ * UITableView-Methode
+ * Gibt die Anzahl an Zeilen in einer Sektion wieder
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
     NSInteger count = [bookArray count];
+    // fuer die Zeile "more" - falls nach mehr gesucht werden soll
     count += lookForMore ? 1 : 0;
     return  count;
 }
-
+/**
+ * UITableView-Methode
+ * Gibt die Anzahl an Zeilen in einer Sektion wieder
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -105,7 +128,6 @@
     }
     return cell;
 }
-
 
 
 /*
@@ -148,9 +170,15 @@
  */
 
 
- #pragma mark - Table view delegate
- 
- // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+/**
+ * UITableView-Methode
+ * Wenn eine Zeile in der Listenelement angeklickt wird, 
+ * wird diese Methode mit der Zeile und deren IndexPath
+ * aufgerufen
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([indexPath row] == [bookArray count]) {
@@ -172,8 +200,12 @@
 }
  
 
-//SearchBarDelegates
-
+#pragma mark - SearchBarDelegates
+/**
+ * Delegate des Searchbarviews
+ * wird aufgerufen wenn der Suchen/Search-Button 
+ * betaetigt wurde
+ */
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSString *searchstring = [[searchBar text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -182,8 +214,12 @@
     [searchBar resignFirstResponder];
 }
 
-//Bookr Delegate
-
+#pragma mark - BookrConnection Delegate
+/**
+ * Delegate der BookrConnection
+ * Wenn die Suche ein Ergebnis zurückgibt wird
+ * diese Funktion aufgerufen
+ */
 -(void)objectDidLoad:(NSArray *)array
 {
     
