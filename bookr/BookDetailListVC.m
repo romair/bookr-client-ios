@@ -89,16 +89,10 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (indexPath.row == 0) {
         UITableViewCell *detailCell = [[UITableViewCell alloc] initWithFrame:(CGRect){{0,0},{320,88}}];
-        
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        }
-        
         //[detailCell setBackgroundColor:[UIColor yellowColor]];
         
         [self prepareDetailCell:detailCell];
@@ -108,9 +102,9 @@
         return detailCell;
     } else {
         
-    }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
@@ -119,7 +113,7 @@
     Book * bookVersion = (Book *)[versions objectAtIndex:[indexPath row]-1];
     [[cell textLabel] setText:[bookVersion publisher]];
     [[cell detailTextLabel] setText:[NSString stringWithFormat:@"ISBN13:%@ - ISBN10:%@",[[bookVersion isbn] isbn13],[[bookVersion isbn] isbn10]/*, [[bookVersion quality] stringValue]*/]];
-    
+    }
     return cell;
 }
 
@@ -170,8 +164,9 @@
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
     }else{
     
     VersionDetailVC *detailViewController = [[VersionDetailVC alloc] initWithNibName:@"VersionDetailVC" bundle:nil];

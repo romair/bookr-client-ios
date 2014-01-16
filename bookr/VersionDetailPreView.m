@@ -57,12 +57,14 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     [seperator setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:1].CGColor];
     [[sheetBackground layer] addSublayer:seperator];
     
-    disMissButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [disMissButton setImage:[UIImage imageNamed:@"closeButton"] forState:UIControlStateNormal];
-    [disMissButton setImage:[UIImage imageNamed:@"closeButtonHigh"] forState:UIControlStateHighlighted];
-    [disMissButton setFrame:(CGRect){{sheetBackground.frame.size.width-65,sheetBackground.frame
-    .size.height-65},{40,40}}];
-    //[disMissButton setBackgroundColor:[UIColor grayColor]];
+    disMissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [disMissButton setTitle:@"close" forState:UIControlStateNormal];
+    CGSize buttonTitleSize = [[disMissButton titleForState:UIControlStateNormal] boundingRectWithSize:(CGSize){100,30} options:NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName: [UIFont fontWithName:VDPUsedFontName size:[UIFont buttonFontSize]]} context:nil].size;
+    buttonTitleSize = (CGSize){ceilf(buttonTitleSize.width+20),ceilf(buttonTitleSize.height+20)};
+    [disMissButton setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
+    [disMissButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+    [disMissButton setFrame:(CGRect){{sheetBackground.frame.size.width-(buttonTitleSize.width+25),sheetBackground.frame
+        .size.height-(buttonTitleSize.height+25)},buttonTitleSize}];
     [disMissButton addTarget:self action:@selector(slideOut) forControlEvents:UIControlEventTouchUpInside];
     
     [titleLabel setFont:[UIFont fontWithName:VDPUsedFontName size:20]];
@@ -230,10 +232,10 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     //Anzahl der Autoren ermitteln
     //in schleife autore an einen mutable string anfügen und mit komma trennen
     if ([book.authors count] == 1) {
-        infoString = @"Autor";
+        infoString = @"Author";
         [contentString appendString:[(Author *)[book.authors anyObject] name]];
     } else if ([book.authors count] > 1){
-        infoString = @"Autoren";
+        infoString = @"Authors";
         for (Author *author in book.authors) {
             [contentString appendFormat:@"%@, ",author.name];
         }
