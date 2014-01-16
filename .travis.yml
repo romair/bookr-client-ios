@@ -8,5 +8,4 @@ before_install:
     - brew install xctool
 #install: make get-deps
 script: 
-    - xctool -workspace Restkit/RestKit.xcworkspace -scheme RestKit -sdk iphoneos clean build 
     - xctool -project bookr.xcodeproj -scheme bookrTests test
