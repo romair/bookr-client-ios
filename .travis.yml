@@ -6,4 +6,5 @@ before_install:
     - brew update
     - brew uninstall xctool
     - brew install xctool
+install: make get-deps
 script: xctool -project bookr.xcodeproj -scheme bookr test

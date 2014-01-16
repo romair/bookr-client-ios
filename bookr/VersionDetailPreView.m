@@ -261,7 +261,9 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     CGFloat isAuthor = authorsLabel.frame.size.height == 0 ? -10 : 0;
     
     //existenz überprüfen
-    //falss nicht erwähnen das kein textsnippet angegebn wurde/ vorhanden
+    
+    
+    
     [snippetTextInfL setFrame:(CGRect){{25,AuthorYEnd+isAuthor+10},CGSizeZero}];
     [snippetTextInfL sizeToFit];
     
@@ -290,15 +292,6 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
         [thumbnail setFrame:(CGRect){thumbnail.frame.origin,{maxWidth, maxHeight}}];
     }
     
-    /*if (book.thumbnail) {
-        if (![thumbnail superview]) {
-            //view sichtbar machen bzw superview setzen
-        }
-    } else {
-        if ([thumbnail superview]) {
-            //View entfernen oder unsichtbar machen
-        }
-    }*/
     //existenz überprüfen
     //falls nicht vorhanden wird der View zeitweilig entfernt
 }

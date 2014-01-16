@@ -175,10 +175,8 @@
         
     }else{
     
-    VersionDetailVC *detailViewController = [[VersionDetailVC alloc] initWithNibName:@"VersionDetailVC" bundle:nil];
 
     // Pass the selected object to the new view controller.
-    [detailViewController setBook:(Book *)[versions objectAtIndex: indexPath.row-1]];
     
     [preView changeBook:(Book *)[versions objectAtIndex: indexPath.row-1]];
     

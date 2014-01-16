@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 #import "BookrConnection.h"
-#import "VersionDetailVC.h"
 
 #import "Book.h"
 #import "ISBN.h"

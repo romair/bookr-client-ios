@@ -10,16 +10,9 @@
 		3F0D911118807CAA00A9768F /* VersionDetailPreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D911018807CAA00A9768F /* VersionDetailPreView.m */; };
 		3F0E81CF1847C6EF00E766A7 /* Book.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E81CD1847C6EF00E766A7 /* Book.xcdatamodeld */; };
 		3F112AFC185F39EF00EF6EA4 /* BookDetailListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F112AFA185F39EF00EF6EA4 /* BookDetailListVC.m */; };
-		3F112AFD185F39EF00EF6EA4 /* BookDetailListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F112AFB185F39EF00EF6EA4 /* BookDetailListVC.xib */; };
 		3F18750E1857420E00E09F34 /* BookrConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F18750D1857420E00E09F34 /* BookrConnection.m */; };
 		3F391509187610490043C068 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F391508187610490043C068 /* Default@2x.png */; };
 		3F39150E18761F880043C068 /* bookrIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F39150D18761F870043C068 /* bookrIcon.png */; };
-		3F443918186047FB004C0919 /* VersionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F443916186047FB004C0919 /* VersionDetailVC.m */; };
-		3F443919186047FB004C0919 /* VersionDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F443917186047FB004C0919 /* VersionDetailVC.xib */; };
-		3F44391F18604FEA004C0919 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44391E18604FEA004C0919 /* Author.m */; };
-		3F44392518604FEA004C0919 /* SuperBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44392418604FEA004C0919 /* SuperBook.m */; };
-		3F44392818604FEA004C0919 /* Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44392718604FEA004C0919 /* Thumbnail.m */; };
-		3F44392B18604FEA004C0919 /* ISBN.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44392A18604FEA004C0919 /* ISBN.m */; };
 		3F552D0818584F350069AAF2 /* BookSearchListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F552D0618584F350069AAF2 /* BookSearchListVC.m */; };
 		3F552D0918584F350069AAF2 /* BookSearchListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F552D0718584F350069AAF2 /* BookSearchListVC.xib */; };
 		3F67C486183E61160012B064 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F67C47D183E5E9E0012B064 /* libRestKit.a */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -42,8 +35,14 @@
 		3F8D02A3182A8CCB00080411 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8D0285182A8CCB00080411 /* UIKit.framework */; };
 		3F8D02AB182A8CCB00080411 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D02A9182A8CCB00080411 /* InfoPlist.strings */; };
 		3F8D02AD182A8CCB00080411 /* bookrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D02AC182A8CCB00080411 /* bookrTests.m */; };
-		3FA060481886EA4F0015F1BD /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA060471886EA4F0015F1BD /* Book.m */; };
-		3FFBB279185689D900AAFFF7 /* SuperBookWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBB278185689D900AAFFF7 /* SuperBookWrapper.m */; };
+		3FA06059188804D60015F1BD /* BookDetailListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FA06058188804D60015F1BD /* BookDetailListVC.xib */; };
+		3FA0605E18881EEC0015F1BD /* ISBN.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0605D18881EEC0015F1BD /* ISBN.m */; };
+		3FA0606118881EED0015F1BD /* Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0606018881EED0015F1BD /* Thumbnail.m */; };
+		3FA0606418881EED0015F1BD /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0606318881EED0015F1BD /* Book.m */; };
+		3FA0606718881EED0015F1BD /* SuperBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0606618881EED0015F1BD /* SuperBook.m */; };
+		3FA0606A18881EED0015F1BD /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0606918881EED0015F1BD /* Author.m */; };
+		3FA0606D18881F0C0015F1BD /* SuperBookWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0606C18881F0C0015F1BD /* SuperBookWrapper.m */; };
+		3FA0606F18881F3A0015F1BD /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0606E18881F3A0015F1BD /* .travis.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,22 +96,10 @@
 		3F0E81CE1847C6EF00E766A7 /* Book.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book.xcdatamodel; sourceTree = "<group>"; };
 		3F112AF9185F39EF00EF6EA4 /* BookDetailListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailListVC.h; sourceTree = "<group>"; };
 		3F112AFA185F39EF00EF6EA4 /* BookDetailListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailListVC.m; sourceTree = "<group>"; };
-		3F112AFB185F39EF00EF6EA4 /* BookDetailListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailListVC.xib; sourceTree = "<group>"; };
 		3F18750C1857420E00E09F34 /* BookrConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookrConnection.h; sourceTree = "<group>"; };
 		3F18750D1857420E00E09F34 /* BookrConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookrConnection.m; sourceTree = "<group>"; };
 		3F391508187610490043C068 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3F39150D18761F870043C068 /* bookrIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookrIcon.png; sourceTree = "<group>"; };
-		3F443915186047FB004C0919 /* VersionDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionDetailVC.h; sourceTree = "<group>"; };
-		3F443916186047FB004C0919 /* VersionDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionDetailVC.m; sourceTree = "<group>"; };
-		3F443917186047FB004C0919 /* VersionDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionDetailVC.xib; sourceTree = "<group>"; };
-		3F44391D18604FEA004C0919 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
-		3F44391E18604FEA004C0919 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
-		3F44392318604FEA004C0919 /* SuperBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperBook.h; sourceTree = "<group>"; };
-		3F44392418604FEA004C0919 /* SuperBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperBook.m; sourceTree = "<group>"; };
-		3F44392618604FEA004C0919 /* Thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thumbnail.h; sourceTree = "<group>"; };
-		3F44392718604FEA004C0919 /* Thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thumbnail.m; sourceTree = "<group>"; };
-		3F44392918604FEA004C0919 /* ISBN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISBN.h; sourceTree = "<group>"; };
-		3F44392A18604FEA004C0919 /* ISBN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISBN.m; sourceTree = "<group>"; };
 		3F552D0518584F350069AAF2 /* BookSearchListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchListVC.h; sourceTree = "<group>"; };
 		3F552D0618584F350069AAF2 /* BookSearchListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchListVC.m; sourceTree = "<group>"; };
 		3F552D0718584F350069AAF2 /* BookSearchListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookSearchListVC.xib; sourceTree = "<group>"; };
@@ -140,10 +127,20 @@
 		3F8D02A8182A8CCB00080411 /* bookrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "bookrTests-Info.plist"; sourceTree = "<group>"; };
 		3F8D02AA182A8CCB00080411 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F8D02AC182A8CCB00080411 /* bookrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bookrTests.m; sourceTree = "<group>"; };
-		3FA060461886EA4F0015F1BD /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
-		3FA060471886EA4F0015F1BD /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
-		3FFBB277185689D900AAFFF7 /* SuperBookWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperBookWrapper.h; sourceTree = "<group>"; };
-		3FFBB278185689D900AAFFF7 /* SuperBookWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperBookWrapper.m; sourceTree = "<group>"; };
+		3FA06058188804D60015F1BD /* BookDetailListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailListVC.xib; sourceTree = "<group>"; };
+		3FA0605C18881EEC0015F1BD /* ISBN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISBN.h; path = bookr/ISBN.h; sourceTree = "<group>"; };
+		3FA0605D18881EEC0015F1BD /* ISBN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISBN.m; path = bookr/ISBN.m; sourceTree = "<group>"; };
+		3FA0605F18881EED0015F1BD /* Thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Thumbnail.h; path = bookr/Thumbnail.h; sourceTree = "<group>"; };
+		3FA0606018881EED0015F1BD /* Thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Thumbnail.m; path = bookr/Thumbnail.m; sourceTree = "<group>"; };
+		3FA0606218881EED0015F1BD /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = bookr/Book.h; sourceTree = "<group>"; };
+		3FA0606318881EED0015F1BD /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = bookr/Book.m; sourceTree = "<group>"; };
+		3FA0606518881EED0015F1BD /* SuperBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperBook.h; path = bookr/SuperBook.h; sourceTree = "<group>"; };
+		3FA0606618881EED0015F1BD /* SuperBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperBook.m; path = bookr/SuperBook.m; sourceTree = "<group>"; };
+		3FA0606818881EED0015F1BD /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Author.h; path = bookr/Author.h; sourceTree = "<group>"; };
+		3FA0606918881EED0015F1BD /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Author.m; path = bookr/Author.m; sourceTree = "<group>"; };
+		3FA0606B18881F0C0015F1BD /* SuperBookWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperBookWrapper.h; path = bookr/SuperBookWrapper.h; sourceTree = "<group>"; };
+		3FA0606C18881F0C0015F1BD /* SuperBookWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperBookWrapper.m; path = bookr/SuperBookWrapper.m; sourceTree = "<group>"; };
+		3FA0606E18881F3A0015F1BD /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,19 +178,19 @@
 		3F0E81D01847C6FE00E766A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3FA060461886EA4F0015F1BD /* Book.h */,
-				3FA060471886EA4F0015F1BD /* Book.m */,
 				3F0E81CD1847C6EF00E766A7 /* Book.xcdatamodeld */,
-				3F44392318604FEA004C0919 /* SuperBook.h */,
-				3F44392418604FEA004C0919 /* SuperBook.m */,
-				3F44392918604FEA004C0919 /* ISBN.h */,
-				3F44392A18604FEA004C0919 /* ISBN.m */,
-				3F44392618604FEA004C0919 /* Thumbnail.h */,
-				3F44392718604FEA004C0919 /* Thumbnail.m */,
-				3F44391D18604FEA004C0919 /* Author.h */,
-				3F44391E18604FEA004C0919 /* Author.m */,
-				3FFBB277185689D900AAFFF7 /* SuperBookWrapper.h */,
-				3FFBB278185689D900AAFFF7 /* SuperBookWrapper.m */,
+				3FA0606818881EED0015F1BD /* Author.h */,
+				3FA0606918881EED0015F1BD /* Author.m */,
+				3FA0606518881EED0015F1BD /* SuperBook.h */,
+				3FA0606618881EED0015F1BD /* SuperBook.m */,
+				3FA0606218881EED0015F1BD /* Book.h */,
+				3FA0606318881EED0015F1BD /* Book.m */,
+				3FA0605F18881EED0015F1BD /* Thumbnail.h */,
+				3FA0606018881EED0015F1BD /* Thumbnail.m */,
+				3FA0605C18881EEC0015F1BD /* ISBN.h */,
+				3FA0605D18881EEC0015F1BD /* ISBN.m */,
+				3FA0606B18881F0C0015F1BD /* SuperBookWrapper.h */,
+				3FA0606C18881F0C0015F1BD /* SuperBookWrapper.m */,
 			);
 			name = Model;
 			path = ..;
@@ -213,8 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				3F552D0718584F350069AAF2 /* BookSearchListVC.xib */,
-				3F112AFB185F39EF00EF6EA4 /* BookDetailListVC.xib */,
-				3F443917186047FB004C0919 /* VersionDetailVC.xib */,
+				3FA06058188804D60015F1BD /* BookDetailListVC.xib */,
 			);
 			name = Xib;
 			sourceTree = "<group>";
@@ -226,8 +222,6 @@
 				3F552D0618584F350069AAF2 /* BookSearchListVC.m */,
 				3F112AF9185F39EF00EF6EA4 /* BookDetailListVC.h */,
 				3F112AFA185F39EF00EF6EA4 /* BookDetailListVC.m */,
-				3F443915186047FB004C0919 /* VersionDetailVC.h */,
-				3F443916186047FB004C0919 /* VersionDetailVC.m */,
 				3F0D910F18807CAA00A9768F /* VersionDetailPreView.h */,
 				3F0D911018807CAA00A9768F /* VersionDetailPreView.m */,
 			);
@@ -303,6 +297,7 @@
 		3F8D0288182A8CCB00080411 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3FA0606E18881F3A0015F1BD /* .travis.yml */,
 				3F8D0289182A8CCB00080411 /* bookr-Info.plist */,
 				3F8D028A182A8CCB00080411 /* InfoPlist.strings */,
 				3F8D028D182A8CCB00080411 /* main.m */,
@@ -447,10 +442,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F391509187610490043C068 /* Default@2x.png in Resources */,
-				3F112AFD185F39EF00EF6EA4 /* BookDetailListVC.xib in Resources */,
+				3FA06059188804D60015F1BD /* BookDetailListVC.xib in Resources */,
+				3FA0606F18881F3A0015F1BD /* .travis.yml in Resources */,
 				3F39150E18761F880043C068 /* bookrIcon.png in Resources */,
 				3F8D029A182A8CCB00080411 /* Images.xcassets in Resources */,
-				3F443919186047FB004C0919 /* VersionDetailVC.xib in Resources */,
 				3F552D0918584F350069AAF2 /* BookSearchListVC.xib in Resources */,
 				3F8D028C182A8CCB00080411 /* InfoPlist.strings in Resources */,
 			);
@@ -471,19 +466,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F44392B18604FEA004C0919 /* ISBN.m in Sources */,
-				3F44391F18604FEA004C0919 /* Author.m in Sources */,
-				3F44392818604FEA004C0919 /* Thumbnail.m in Sources */,
-				3F443918186047FB004C0919 /* VersionDetailVC.m in Sources */,
-				3FFBB279185689D900AAFFF7 /* SuperBookWrapper.m in Sources */,
+				3FA0606A18881EED0015F1BD /* Author.m in Sources */,
+				3FA0605E18881EEC0015F1BD /* ISBN.m in Sources */,
+				3FA0606718881EED0015F1BD /* SuperBook.m in Sources */,
+				3FA0606118881EED0015F1BD /* Thumbnail.m in Sources */,
 				3F552D0818584F350069AAF2 /* BookSearchListVC.m in Sources */,
-				3F44392518604FEA004C0919 /* SuperBook.m in Sources */,
 				3F18750E1857420E00E09F34 /* BookrConnection.m in Sources */,
 				3F8D0292182A8CCB00080411 /* AppDelegate.m in Sources */,
 				3F112AFC185F39EF00EF6EA4 /* BookDetailListVC.m in Sources */,
+				3FA0606D18881F0C0015F1BD /* SuperBookWrapper.m in Sources */,
 				3F8D028E182A8CCB00080411 /* main.m in Sources */,
+				3FA0606418881EED0015F1BD /* Book.m in Sources */,
 				3F0D911118807CAA00A9768F /* VersionDetailPreView.m in Sources */,
-				3FA060481886EA4F0015F1BD /* Book.m in Sources */,
 				3F0E81CF1847C6EF00E766A7 /* Book.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

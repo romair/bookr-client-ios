@@ -2,8 +2,8 @@
 //  ISBN.h
 //  bookr
 //
-//  Created by Steve Maahs on 17.12.13.
-//  Copyright (c) 2013 WSM. All rights reserved.
+//  Created by Steve Maahs on 16.01.14.
+//  Copyright (c) 2014 WSM. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
