@@ -10,6 +10,9 @@
 
 @interface bookrTests : XCTestCase
 
+- (void)testExample;
+- (void)testSecond;
+
 @end
 
 @implementation bookrTests
@@ -33,6 +36,6 @@
 
 - (void)testSecond
 {
-    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 @end
