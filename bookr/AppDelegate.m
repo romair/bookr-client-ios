@@ -14,42 +14,33 @@
 
 @implementation AppDelegate
 
+/*
+ * Das Book.xcdatamodel ist zum erstellen der Modelklassen
+ * Der SuperBookWrapper dient nur zum um die Empfangenen
+ * Konstrukte besser auf die Objekte zu mappen
+ */
 
+/**
+ * Einstiegspunkt in der iOS Entwicklung
+ * ein NavigationController wird erstellt um zwischen
+ * groesseren Controller Komponenten zu wechseln
+ * der erste ViewController ist der fuer die Buch suche
+ */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
-    
+    // erstellen des Controllers
     BookSearchListVC *viewController = [[BookSearchListVC alloc] initWithNibName:@"BookSearchListVC" bundle:nil];
-    
+    // erstellen des NavigationControllers mit dem dem Buch-Such-Liste-Controller
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
-    self.window.rootViewController = navController;
-    
-    //self.viewController = [[ViewController alloc] init];
-    //self.window.rootViewController = self.viewController;
-    //[_window addSubview:_viewController.tableView];
-    
+    [self.window setRootViewController:navController];
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
+    
     return YES;
-    
-    //ViewController *controller = [[ViewController alloc] initWithStyle:UITableViewStylePlain];;
-    //[_window setRootViewController:[[UINavigationController alloc] initWithRootViewController:controller]];
-    //UITableView *tableView = [[UITableView alloc] initWithFrame:(CGRect){{0,0},{300,300}}];
-    
-    //[_window addSubview:tableView];
-    //[_window setBackgroundColor:[UIColor  whiteColor]];
-    
-    //[(UINavigationController *)self.window.rootViewController popToRootViewControllerAnimated:YES];
-    
-    //[_window setRootViewController:controller];
-    //[_window makeKeyAndVisible];
-    
-    
-    //return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
