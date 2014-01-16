@@ -174,16 +174,16 @@
     if (indexPath.row == 0) {
         
     }else{
-    
-
-    // Pass the selected object to the new view controller.
-    
-    [preView changeBook:(Book *)[versions objectAtIndex: indexPath.row-1]];
-    
-    [[[self view] superview] addSubview:preView];
-    
-    // Push the view controller.
-    //[self.navigationController pushViewController:detailViewController animated:YES];
+        
+        
+        // Pass the selected object to the new view controller.
+        
+        [preView changeBook:(Book *)[versions objectAtIndex: indexPath.row-1]];
+        
+        [[[self view] superview] addSubview:preView];
+        [preView slideIn];
+        // Push the view controller.
+        //[self.navigationController pushViewController:detailViewController animated:YES];
     }
 }
 

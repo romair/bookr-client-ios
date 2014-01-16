@@ -41,11 +41,11 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     hasSubtitle = NO;
     
     //init der layer auf dem alles stattfinden wird
-    backround = [CALayer layer];
-    [backround setFrame:(CGRect){{0,64},{320,504}}];
-    [backround setBackgroundColor:[UIColor blackColor].CGColor];
-    [backround setOpacity:0.60];
-    [[self layer] addSublayer:backround];
+    background = [CALayer layer];
+    [background setFrame:(CGRect){{0,64},{320,504}}];
+    [background setBackgroundColor:[UIColor blackColor].CGColor];
+    [background setOpacity:0.60];
+    [[self layer] addSublayer:background];
     
     sheetBackground = [[UIView alloc] initWithFrame:(CGRect){{10,25+64},{300,469}}];
     [sheetBackground setBackgroundColor:[UIColor colorWithWhite:0.98 alpha:1]];
@@ -303,7 +303,18 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
 -(void)slideIn
 {
     if ([self superview]) {
+        CABasicAnimation *coloranim = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+        [coloranim setFromValue:(id)[UIColor clearColor].CGColor];
+        [coloranim setToValue:(id)[UIColor colorWithWhite:0 alpha:0.8].CGColor];
+        [coloranim setDuration:0.2];
+        [coloranim setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+        [background addAnimation:coloranim forKey:@"backgroundColor"];
         
+        [sheetBackground setCenter:(CGPoint){-200,sheetBackground.center.y}];
+        [UIView animateWithDuration:0.2 animations:^{
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+            [sheetBackground setCenter:(CGPoint){160,sheetBackground.center.y}];
+        }];
     }
     //abfrage ob der View überhaupt auftauchen muss
     //wenn er bereits vorhanden ist dann wird auch nichts passieren(vorerst)
@@ -318,7 +329,23 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
 {
     //abfrage ob der View verschwinden muss
     //wenn nicht vorhanden wird er auch nicht nochmal verschwinden
-    [self removeFromSuperview];
+    
+    CABasicAnimation *coloranim = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    [coloranim setFromValue:(id)[UIColor colorWithWhite:0 alpha:0.8].CGColor];
+    [coloranim setToValue:(id)[UIColor clearColor].CGColor];
+    [coloranim setDuration:0.25];
+    [coloranim setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+    [background addAnimation:coloranim forKey:@"backgroundColor"];
+    [background addAnimation:coloranim forKey:@"backgroundColor"];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [sheetBackground setCenter:(CGPoint){500,sheetBackground.center.y}];
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+    
+    
 }
 /*
 // Only override drawRect: if you perform custom drawing.

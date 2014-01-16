@@ -32,7 +32,7 @@
     BOOL isIphone5;
     //landscape?
     
-    CALayer *backround;
+    CALayer *background;
     UIView *sheetBackground;
     CALayer *seperator;
     
