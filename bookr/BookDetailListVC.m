@@ -35,7 +35,11 @@
     }
     return self;
 }
-
+/**
+ * UIViewController Methode
+ * Fuer jedes angegebene Listen Paar an ISBNS wird
+ * ein Request rausgeschickt
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -58,11 +62,6 @@
     //});
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -70,14 +69,20 @@
 }
 
 #pragma mark - Table view data source
-
+/**
+ * UITableView-Methode
+ * Gibt die Anzahl der Sektion wieder
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
-
+/**
+ * UITableView-Methode
+ * Gibt die Anzahl an Zeilen in einer Sektion wieder
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
