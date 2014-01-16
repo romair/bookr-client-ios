@@ -1,11 +1,8 @@
-#language: objective-c
-#xcode_project: bookr.xcodeproj
-#xcode_scheme: bookrTests
 language: objective-c
 before_install:
     - brew update
     - brew uninstall xctool
     - brew install xctool
 #install: make get-deps
-script: 
-    - xctool -project bookr.xcodeproj -scheme bookrTests test
+script:
+    - xctool -project bookr.xcodeproj -scheme bookr -sdk iphonesimulator build-tests -only bookrTests run-tests
