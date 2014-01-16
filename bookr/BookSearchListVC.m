@@ -89,7 +89,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    NSLog(@"%ld",[indexPath row]);
     if ([indexPath row] == [bookArray count]) {
         [[cell textLabel] setText:@"more ..."];
         [[cell detailTextLabel] setText:@""];
@@ -157,6 +156,7 @@
     if ([indexPath row] == [bookArray count]) {
         NSString *searchstring = [[_searchBarView text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         [conn makeSuperBookRequest:searchstring more:YES];
+        [_searchBarView resignFirstResponder];
         lookForMore = NO;
     } else {
         // Navigation logic may go here, for example:
@@ -186,8 +186,11 @@
 
 -(void)objectDidLoad:(NSArray *)array
 {
-    bookArray = [NSMutableArray arrayWithArray:array];
-    //NSLog(@"%@",bookArray);
+    
+    //NSLog(@"%@",[bookArray count] != 0 ? [[bookArray objectAtIndex:0] class] : NULL);
+    if (([array count] != 0 ? [[array objectAtIndex:0] class] : NULL) == [SuperBook class]) {
+        bookArray = [NSMutableArray arrayWithArray:array];
+    }
     
     [self.tableView reloadData];
 }

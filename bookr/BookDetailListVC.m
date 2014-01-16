@@ -102,17 +102,23 @@
         return detailCell;
     } else {
         
-    
-    
-    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell...
-    Book * bookVersion = (Book *)[versions objectAtIndex:[indexPath row]-1];
-    [[cell textLabel] setText:[bookVersion publisher]];
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"ISBN13:%@ - ISBN10:%@",[[bookVersion isbn] isbn13],[[bookVersion isbn] isbn10]/*, [[bookVersion quality] stringValue]*/]];
+        
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        }
+        
+        // Configure the cell...
+        Book * bookVersion = (Book *)[versions objectAtIndex:[indexPath row]-1];
+        [[cell textLabel] setText:[bookVersion title]];
+        NSString *detailString;
+        if (bookVersion.publisher.length != 0) {
+            detailString = [NSString stringWithFormat:@"%@, isbn13: %@",bookVersion.publisher,[[bookVersion isbn] isbn13]];
+        } else {
+            detailString = [NSString stringWithFormat:@"isbn13: %@ isbn10: %@",[[bookVersion isbn] isbn13],[[bookVersion isbn] isbn10]];
+        }
+        [[cell detailTextLabel] setText:detailString];
     }
     return cell;
 }
@@ -206,7 +212,7 @@
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"quality" ascending:NO];
         [versions sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
         
-        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[versions indexOfObject:book] inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[versions indexOfObject:book]+1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
     }
     
 }
@@ -229,7 +235,7 @@
     
     NSMutableString * authorString = [NSMutableString string];
     for (Author *author in superBook.authors) {
-        [authorString appendFormat:@"%@ ,",author.name];
+        [authorString appendFormat:@"%@, ",author.name];
     }
     
     [authors setText:authorString];
