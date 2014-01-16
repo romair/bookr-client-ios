@@ -21,12 +21,22 @@
     UILabel *subtitleLabel;
     UILabel *publishAndYearLabel;
     UILabel *authorsLabel;
-    UITextView *textSnippetView;
+    UITextView *snippetTextView;
     UIImageView *thumbnail;
+    
+    UILabel *publishAndYearInfL;
+    UILabel *snippetTextInfL;
+    UILabel *authorInfL;
     
     BOOL hasSubtitle;
     BOOL isIphone5;
     //landscape?
+    
+    CALayer *backround;
+    UIView *sheetBackground;
+    CALayer *seperator;
+    
+    UIButton *disMissButton;
 }
 
 @property (strong, nonatomic) Book *book;
@@ -37,6 +47,6 @@
 
 //visible Actions
 -(void)slideIn;
--(void)slideOUt;
+-(void)slideOut;
 
 @end

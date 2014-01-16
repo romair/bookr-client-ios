@@ -30,6 +30,7 @@
         
         _conn = [BookrConnection sharedInstance];
         versions = [NSMutableArray array];
+        preView = [[VersionDetailPreView alloc] initWithFrame:(CGRect){CGPointZero,{320,564}}];
         
     }
     return self;
@@ -117,7 +118,7 @@
     // Configure the cell...
     Book * bookVersion = (Book *)[versions objectAtIndex:[indexPath row]-1];
     [[cell textLabel] setText:[bookVersion publisher]];
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@",[[bookVersion isbn] isbn13]/*, [[bookVersion quality] stringValue]*/]];
+    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"ISBN13:%@ - ISBN10:%@",[[bookVersion isbn] isbn13],[[bookVersion isbn] isbn10]/*, [[bookVersion quality] stringValue]*/]];
     
     return cell;
 }
@@ -169,15 +170,24 @@
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
+    if (indexPath.row == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }else{
+    
     VersionDetailVC *detailViewController = [[VersionDetailVC alloc] initWithNibName:@"VersionDetailVC" bundle:nil];
 
     // Pass the selected object to the new view controller.
     [detailViewController setBook:(Book *)[versions objectAtIndex: indexPath.row-1]];
     
+    [preView changeBook:(Book *)[versions objectAtIndex: indexPath.row-1]];
+    
+    [[[self view] superview] addSubview:preView];
+    
     // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    //[self.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
- 
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     

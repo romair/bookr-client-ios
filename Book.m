@@ -2,8 +2,8 @@
 //  Book.m
 //  bookr
 //
-//  Created by Steve Maahs on 17.12.13.
-//  Copyright (c) 2013 WSM. All rights reserved.
+//  Created by Steve Maahs on 15.01.14.
+//  Copyright (c) 2014 WSM. All rights reserved.
 //
 
 #import "Book.h"
@@ -15,12 +15,12 @@
 @implementation Book
 
 @dynamic publisher;
+@dynamic quality;
 @dynamic subtitle;
 @dynamic superBook;
 @dynamic textSnippet;
 @dynamic title;
 @dynamic year;
-@dynamic quality;
 @dynamic authors;
 @dynamic isbn;
 @dynamic thumbnail;

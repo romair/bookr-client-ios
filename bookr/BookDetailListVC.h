@@ -14,9 +14,13 @@
 #import "Book.h"
 #import "ISBN.h"
 
+#import "VersionDetailPreView.h"
+
 
 @interface BookDetailListVC : UITableViewController <ObjectLoadDelegate>
-
+{
+    VersionDetailPreView *preView;
+}
 @property (strong, nonatomic)SuperBook * superBook;
 @property (strong, nonatomic)BookrConnection * conn;
 

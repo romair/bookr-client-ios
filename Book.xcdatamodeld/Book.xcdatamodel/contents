@@ -10,7 +10,7 @@
         <attribute name="superBook" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="textSnippet" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="year" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="authors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Author" syncable="YES"/>
         <relationship name="isbn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ISBN" syncable="YES"/>
         <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Thumbnail" syncable="YES"/>
