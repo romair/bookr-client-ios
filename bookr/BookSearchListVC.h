@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "BookrConnection.h"
+#import "BookrHelper.h"
 
 @interface BookSearchListVC : UITableViewController <ObjectLoadDelegate,UISearchBarDelegate>
 {

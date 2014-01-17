@@ -67,6 +67,7 @@
 {
     XCTAssertNotNil(vDPV, @"VersionDetailPreView isn't initialized!");
 }
+
 - (void)testVersionDetailPreViewSlideInAnimation
 {
     UIView *superView = [[UIView alloc] init];

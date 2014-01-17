@@ -246,20 +246,17 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     CGFloat isPublisher = publishAndYearLabel.frame.size.height == 0 ? -10 : 0;
     
     NSString *infoString;
-    NSMutableString *contentString = [NSMutableString string];
+    NSString *contentString;
     
     //existenz überprüfen
     //Anzahl der Autoren ermitteln
     //in schleife autore an einen mutable string anfügen und mit komma trennen
     if ([book.authors count] == 1) {
         infoString = @"Author";
-        [contentString appendString:[(Author *)[book.authors anyObject] name]];
+        contentString  = [(Author *)[book.authors anyObject] name];
     } else if ([book.authors count] > 1){
         infoString = @"Authors";
-        for (Author *author in book.authors) {
-            [contentString appendFormat:@"%@, ",author.name];
-        }
-        [contentString deleteCharactersInRange:(NSRange){contentString.length-3,2}];
+        contentString = [BookrHelper generateStringForAuthors:book.authors];
     } else {
         infoString = @"";
     }
@@ -290,7 +287,7 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     [snippetTextInfL sizeToFit];
     
     [snippetTextView setText:book.textSnippet];
-    [snippetTextView setFrame:(CGRect){{25,snippetTextInfL.frame.origin.y+snippetTextInfL.frame.size.height},{250,100}}];
+    [snippetTextView setFrame:(CGRect){{25,snippetTextInfL.frame.origin.y+snippetTextInfL.frame.size.height},{250,120}}];
     [snippetTextView sizeToFit];
     
 }

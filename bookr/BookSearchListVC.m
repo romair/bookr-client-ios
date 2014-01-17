@@ -131,10 +131,7 @@
         SuperBook *book = [bookArray objectAtIndex:[indexPath row]];
         [[cell textLabel] setText:[book title]];
         
-        NSMutableString * authors = [NSMutableString string];
-        for (Author *author in [book authors]) {
-            [authors appendFormat:@"%@, ",author.name];
-        }
+        NSString * authors = [BookrHelper generateStringForAuthors:book.authors];
         [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ (%@)",authors,[book year]]];
     }
     return cell;

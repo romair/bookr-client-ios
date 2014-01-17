@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import "BookrHelper.h"
+
 #import "Book.h"
 #import "ISBN.h"
 #import "Author.h"

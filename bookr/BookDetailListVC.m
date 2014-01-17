@@ -236,10 +236,7 @@
     [subTitle setFont:[UIFont fontWithName:@"Helvetica" size:20]];
     [subTitle setFrame:(CGRect){{15,35},[[subTitle text] sizeWithFont:[subTitle font]]}];
     
-    NSMutableString * authorString = [NSMutableString string];
-    for (Author *author in superBook.authors) {
-        [authorString appendFormat:@"%@, ",author.name];
-    }
+    NSString * authorString = [BookrHelper generateStringForAuthors:superBook.authors];
     
     [authors setText:authorString];
     [authors setFont:[UIFont fontWithName:@"Helvetica" size:20]];

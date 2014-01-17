@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "BookrConnection.h"
+#import "BookrHelper.h"
 
 #import "Book.h"
 #import "ISBN.h"
