@@ -17,6 +17,12 @@ static BookrConnection  *sharedInstance = nil;
 
 @synthesize moContext;
 
+/**
+ * Erstellt, falls nicht vorhanden dieses Objekt
+ * und gibt es wieder
+ *
+ * @return die erzeugte BookrConnection
+ */
 +(BookrConnection *)sharedInstance
 {
     if (sharedInstance == nil) {
@@ -24,7 +30,9 @@ static BookrConnection  *sharedInstance = nil;
     }
     return sharedInstance;
 }
-
+/**
+ * Init-Methode erzeugt die benoetigten Verbindungen und Manager
+ */
 - (id)init
 {
     self = [super init];
@@ -34,7 +42,9 @@ static BookrConnection  *sharedInstance = nil;
     }
     return self;
 }
-
+/**
+ * Erstellt den Objekt-Manager der Restkit-Schnittstelle
+ */
 -(void)setupManager
 {
     objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://54.217.229.167"]];
@@ -43,7 +53,10 @@ static BookrConnection  *sharedInstance = nil;
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     objectManager.managedObjectStore = managedObjectStore;
 }
-
+/**
+ * Erzeugt den Objekt-Kontext fuer die Erzeugung
+ * von Model-Objekten.
+ */
 -(void)setupContext
 {
     moContext = [[NSManagedObjectContext alloc] init];
@@ -56,7 +69,15 @@ static BookrConnection  *sharedInstance = nil;
         NSLog(@"After managedObjectContext: %@",  moContext);
     }
 }
-
+/**
+ * Erstellt den Request und handelt das Ergebnis
+ * wenn ein Suchbegriff an die API geschickt wird
+ *
+ * @param searchPath Der Suchbegriff nach welchem 
+ *        gesucht werden soll
+ * @param isMore falls "True" wird an die API ein "/more"
+ *        mitgesendet um nach mehr Ergebnissen zu suchen
+ */
 -(void)makeSuperBookRequest:(NSString *)searchPath more:(Boolean)isMore
 {
     RKObjectMapping *objMapping = [RKObjectMapping mappingForClass:[SuperBookWrapper class]];
@@ -90,7 +111,14 @@ static BookrConnection  *sharedInstance = nil;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
      }];
 }
-
+/**
+ * Diese Methode macht einen Version Request
+ * an die API um einzelne Versionen zu bekommen
+ * und handelt das Ergebnis
+ *
+ * @param searchPath der Suchpfades in diesem
+ *        Fall ein Kombination der ISBNS
+ */
 -(void)makeVersionRequest:(NSString *)searchPath
 {
     RKObjectMapping *objMapping = [RKObjectMapping mappingForClass:[SuperBookWrapper class]];
@@ -123,7 +151,14 @@ static BookrConnection  *sharedInstance = nil;
      }];
 }
 
-
+#pragma mark - Mapping von Objekten
+/**
+ * Methode zum mappen des Superbooks
+ *
+ * @param superbooks ein Array mit den Daten von
+ *        den erhaltenen Superbooks
+ * @return ein Array mit Superbook-Objekten
+ */
 -(NSArray *)mappingSuperBook:(NSArray *)superbooks
 {
     NSDictionary *dic;
@@ -144,7 +179,12 @@ static BookrConnection  *sharedInstance = nil;
     
     return bookArray;
 }
-
+/**
+ * Methode zum mappen der SuperBooks
+ * 
+ * @param superbooks Array mit SuperBooks
+ * @return Array der gemappten SuperBooks
+ */
 -(NSArray *)mappingBook:(NSArray *)superbooks
 {
     NSDictionary *dic;
@@ -169,7 +209,12 @@ static BookrConnection  *sharedInstance = nil;
     
     return bookArray;
 }
-
+/**
+ * Methode zum mappen der Autoren
+ * 
+ * @param authors ein Array mit Autoren
+ * @return ein Set mit Author-Objekten
+ */
 -(NSSet *)mappingAuthors:(NSArray *)authors
 {
     NSMutableSet *authorSet = [NSMutableSet set];
@@ -182,7 +227,12 @@ static BookrConnection  *sharedInstance = nil;
     
     return authorSet;
 }
-
+/**
+ * Methode zum mappen der ISBN
+ *
+ * @param isbns ein Dictionary mit den ISBNS(10-13) eines Buches
+ * @return ein ISBN-Objekt
+ */
 -(ISBN *)mappingISBN:(NSDictionary *)isbns
 {
     ISBN *isbn = [NSEntityDescription insertNewObjectForEntityForName:@"ISBN" inManagedObjectContext:moContext];
@@ -191,7 +241,12 @@ static BookrConnection  *sharedInstance = nil;
     
     return isbn;
 }
-
+/**
+ * Methode zum mappen der ISBNS fuer ein SuperBook
+ *
+ * @param isbns ein Array mit ISBN-Paaren
+ * @return ein Set mit ISBN-Objekten
+ */
 -(NSSet *)mappingISBNs:(NSArray *)isbns
 {
     NSMutableSet *isbnSet = [[NSMutableSet alloc] init];
@@ -204,7 +259,12 @@ static BookrConnection  *sharedInstance = nil;
     
     return isbnSet;
 }
-
+/**
+ * Methode zum mappen der Thumbnail
+ *
+ * @param thumbnails ein Dictionary mit den URLS eines Thumbnail-Objekts
+ * @return ein Thumbnail-Objekt
+ */
 -(Thumbnail *)mappingthumbnail:(NSDictionary *)thumbnails
 {
     Thumbnail *thumbnail = [NSEntityDescription insertNewObjectForEntityForName:@"Thumbnail" inManagedObjectContext:moContext];
