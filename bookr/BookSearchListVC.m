@@ -30,7 +30,11 @@
     }
     return self;
 }
-
+/**
+ * UIViewController
+ * Methode zum erstellen des ViewControllers
+ * mithilfe der Xib-Datei
+ */
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -52,9 +56,10 @@
     
     [conn setDelegate:self];
     
-    bookArray = [NSMutableArray array];
+    //NSLog(@"%@",bookArray);
+    //bookArray = [NSMutableArray array];
     
-    [_searchBarView becomeFirstResponder];
+    
     [self.tableView reloadData];
 }
 /**
@@ -63,7 +68,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [_searchBarView becomeFirstResponder];
     // Uncomment the following line to preserve selection between presentations.
     //self.clearsSelectionOnViewWillAppear = YES;
     
@@ -71,7 +76,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
 }
-
+/**
+ * UIViewController Methode
+ */
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -103,7 +110,8 @@
 }
 /**
  * UITableView-Methode
- * Gibt die Anzahl an Zeilen in einer Sektion wieder
+ * erstellt die Zellen fuer die Tabellen
+ * mit der "Koordinate" der anzuzeigenden Zelle
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -112,19 +120,22 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    
     if ([indexPath row] == [bookArray count]) {
+        //falls nach mehr gesucht werden kann wird eine Zelle angehangen die diese Operation übernimmt
         [[cell textLabel] setText:@"more ..."];
         [[cell detailTextLabel] setText:@""];
     } else {
-    // Configure the cell...
-    SuperBook *book = [bookArray objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:[book title]];
-    
-    NSMutableString * authors = [NSMutableString string];
-    for (Author *author in [book authors]) {
-        [authors appendFormat:@"%@, ",author.name];
-    }
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ (%@)",authors,[book year]]];
+        // Configure the cell...
+        // Der Zelle werden die noetigen Werte uebergeben
+        SuperBook *book = [bookArray objectAtIndex:[indexPath row]];
+        [[cell textLabel] setText:[book title]];
+        
+        NSMutableString * authors = [NSMutableString string];
+        for (Author *author in [book authors]) {
+            [authors appendFormat:@"%@, ",author.name];
+        }
+        [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ (%@)",authors,[book year]]];
     }
     return cell;
 }
@@ -224,7 +235,9 @@
 {
     
     //NSLog(@"%@",[bookArray count] != 0 ? [[bookArray objectAtIndex:0] class] : NULL);
-    if (([array count] != 0 ? [[array objectAtIndex:0] class] : NULL) == [SuperBook class]) {
+    if ([array count] == 0) {
+        bookArray = [NSMutableArray arrayWithArray:array];
+    } else if (([array count] != 0 ? [[array objectAtIndex:0] class] : NULL) == [SuperBook class]) {
         bookArray = [NSMutableArray arrayWithArray:array];
     }
     

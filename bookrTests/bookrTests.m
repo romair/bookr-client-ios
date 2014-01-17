@@ -8,8 +8,31 @@
 
 #import <XCTest/XCTest.h>
 
-@interface bookrTests : XCTestCase
+#import "BookSearchListVC.h"
+#import "BookDetailListVC.h"
+#import "VersionDetailPreView.h"
 
+#import "SuperBook.h"
+#import "Book.h"
+#import "Author.h"
+#import "ISBN.h"
+#import "Thumbnail.h"
+
+@interface bookrTests : XCTestCase
+{
+    BookSearchListVC *bSLCV;
+    BookDetailListVC *bDLVC;
+    VersionDetailPreView *vDPV;
+    
+    SuperBook *superBook;
+    Book *book;
+    ISBN *isbn;
+    ISBN *isbn1;
+    ISBN *isbn2;
+    Author *author;
+    Author *author1;
+    Thumbnail *thumbnail;
+}
 @end
 
 @implementation bookrTests
@@ -18,6 +41,9 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    vDPV = [[VersionDetailPreView alloc] initWithFrame:(CGRect){CGPointZero,{320,564}}];
+    
 }
 
 - (void)tearDown
@@ -34,6 +60,12 @@
 
 - (void)testSecond
 {
+    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void)testVersionDetailPreView
+{
+    XCTAssertNotNil(vDPV, @"VersionDetailPreView isn't initialized!");
     //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 @end
