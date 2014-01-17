@@ -262,8 +262,6 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     
     //existenz überprüfen
     
-    
-    
     [snippetTextInfL setFrame:(CGRect){{25,AuthorYEnd+isAuthor+10},CGSizeZero}];
     [snippetTextInfL sizeToFit];
     
