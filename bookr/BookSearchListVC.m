@@ -230,14 +230,11 @@
  */
 -(void)objectDidLoad:(NSArray *)array
 {
-    
-    //NSLog(@"%@",[bookArray count] != 0 ? [[bookArray objectAtIndex:0] class] : NULL);
     if ([array count] == 0) {
         bookArray = [NSMutableArray arrayWithArray:array];
     } else if (([array count] != 0 ? [[array objectAtIndex:0] class] : NULL) == [SuperBook class]) {
         bookArray = [NSMutableArray arrayWithArray:array];
     }
-    
     [self.tableView reloadData];
 }
 
