@@ -44,6 +44,7 @@
 		3FA0606F18881F3A0015F1BD /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0606E18881F3A0015F1BD /* .travis.yml */; };
 		3FA06076188922780015F1BD /* Book.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FA06074188922780015F1BD /* Book.xcdatamodeld */; };
 		3FA0607C1889A2120015F1BD /* BookrHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0607B1889A2120015F1BD /* BookrHelper.m */; };
+		3FA0607E1889A8D10015F1BD /* bookrHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0607D1889A8D10015F1BD /* bookrHelperTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		3FA06075188922780015F1BD /* Book.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book.xcdatamodel; sourceTree = "<group>"; };
 		3FA0607A1889A2120015F1BD /* BookrHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookrHelper.h; sourceTree = "<group>"; };
 		3FA0607B1889A2120015F1BD /* BookrHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookrHelper.m; sourceTree = "<group>"; };
+		3FA0607D1889A8D10015F1BD /* bookrHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookrHelperTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				3F8D02AC182A8CCB00080411 /* bookrTests.m */,
+				3FA0607D1889A8D10015F1BD /* bookrHelperTests.m */,
 				3F8D02A7182A8CCB00080411 /* Supporting Files */,
 			);
 			path = bookrTests;
@@ -493,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F8D02AD182A8CCB00080411 /* bookrTests.m in Sources */,
+				3FA0607E1889A8D10015F1BD /* bookrHelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

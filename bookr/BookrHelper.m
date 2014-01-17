@@ -20,7 +20,7 @@
         for (Author *author in authors) {
             [contentString appendFormat:@"%@, ",author.name];
         }
-        [contentString deleteCharactersInRange:(NSRange){contentString.length-3,2}];
+        [contentString deleteCharactersInRange:(NSRange){contentString.length-2,2}];
     } else {
         
     }
