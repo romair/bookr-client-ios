@@ -15,9 +15,13 @@
     
     Boolean lookForMore;
 }
-
+/**
+ * SearchbarView
+ */
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBarView;
-
+/**
+ * Die Liste der Objekte die dargestellt werden sollen
+ */
 @property (strong,nonatomic) NSMutableArray * bookArray;
 
 @end

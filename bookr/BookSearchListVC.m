@@ -20,7 +20,7 @@
 @synthesize bookArray;
 
 /**
- *
+ * UIViewController
  */
 - (id)initWithStyle:(UITableViewStyle)style
 {

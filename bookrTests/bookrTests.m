@@ -9,10 +9,6 @@
 #import <XCTest/XCTest.h>
 
 @interface bookrTests : XCTestCase
-
-- (void)testExample;
-- (void)testSecond;
-
 @end
 
 @implementation bookrTests
@@ -32,6 +28,7 @@
 - (void)testExample
 {
     //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertTrue (YES, @"hell yeah");
 }
 
 - (void)testSecond
