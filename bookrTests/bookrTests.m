@@ -68,4 +68,12 @@
     XCTAssertNotNil(vDPV, @"VersionDetailPreView isn't initialized!");
     //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
+
+- (void)testVersionDetailPreViewAnimation
+{
+    XCTAssertFalse([vDPV hasAnitmation], @"Had an Animation");
+    [vDPV slideOut];
+    XCTAssertTrue([vDPV hasAnitmation], @"Had No Animation");
+    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
 @end

@@ -355,4 +355,10 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
 }
 */
 
+#pragma mark - Test Helper Methods
+-(BOOL)hasAnitmation
+{
+    return [[background animationKeys] count] != 0 ? YES : NO;
+}
+
 @end

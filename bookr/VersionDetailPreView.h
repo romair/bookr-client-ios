@@ -49,4 +49,6 @@
 -(void)slideIn;
 -(void)slideOut;
 
+//Test Helper Methods
+-(BOOL)hasAnitmation;
 @end
