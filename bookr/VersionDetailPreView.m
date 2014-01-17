@@ -109,18 +109,10 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
   */
 -(void)changeBook:(Book *) newBook
 {
-    BOOL isSameBook = NO;
-    if (book && newBook) {
-        if ([[book.isbn isbn13] isEqualToString:[newBook.isbn isbn13]]) {
-            isSameBook = YES;
-        }
-    }
-#warning test impl
-    book = newBook;
-    
-    //Änderungen kommen hier rein falls es unterschiedliche Bücher sind
-    if (!isSameBook) {
-#warning Bisher nicht implementiert
+    if (![newBook isEqual:book]) {
+        book = newBook;
+        //Änderungen kommen hier rein falls es unterschiedliche Bücher sind
+        
         //setze neuen Title
         [self refreshTitle];
         //setze neuen Subtitle
@@ -167,7 +159,11 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     [seperator setFrame:(CGRect){{25,titleLabelFrame.origin.y+titleLabelFrame.size.height+10},{250,1}}];
     [CATransaction commit];
 }
-
+/**
+ * Diese Methode Setzt den Subtitle falls dieser
+ * vorhanden ist, wenn nicht wird er nicht weiter
+ * dargestellt
+ */
 -(void)refreshSubTitle
 {
     //schauen ob ein sbtitle existiert (über variable)
@@ -175,51 +171,75 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     CGFloat titleYEnd = seperator.frame.origin.y + seperator.frame.size.height;
     
     if (book.subtitle.length != 0) {
-        
+        NSString *contentString = [NSString stringWithString:book.subtitle];
+        CGSize contentSize = [contentString boundingRectWithSize:(CGSize){250,60} options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [subtitleLabel font]} context:Nil].size;
+        contentSize = (CGSize){ceilf(contentSize.width),ceilf(contentSize.height)};
+        CGRect contentFrame = (CGRect){{25,titleYEnd+10},contentSize};
+        [subtitleLabel setText:contentString];
+        [subtitleLabel setNumberOfLines:3];
+        [subtitleLabel setTextAlignment:NSTextAlignmentCenter];
+        [subtitleLabel setFrame:contentFrame];
     } else {
-        
-        [subtitleLabel setFrame:(CGRect){{25,titleYEnd+10},CGSizeZero}];
+        [subtitleLabel setFrame:(CGRect){{25,titleYEnd},CGSizeZero}];
     }
-    
 }
-
+/**
+ * Diese Methode Setzt den Publisher und das Jahr,
+ * falls welche sie vorhanden sind,
+ * wenn nicht wird es nicht weiter
+ * dargestellt
+ * wenn nur jeweils eines von beiden existiert,
+ * wird der Info-text gewechselt und 
+ * nur das jeweilige angezeigt
+ */
 -(void)refreshPublisherAndYear
 {
     //existenz überprüfen beider parteien
     CGFloat subtitleYEnd = subtitleLabel.frame.origin.y + subtitleLabel.frame.size.height;
-    CGFloat isSubtitle = subtitleLabel.frame.size.height == 0 ? -10 : 0;
     
     NSMutableString *infoString = [NSMutableString string];
     NSMutableString *contentString = [NSMutableString string];
     BOOL hasPublisher = NO;
+    BOOL hasYear = NO;
     
     if (book.publisher.length != 0) {
+        //Abfrage ob ein Publisher vorhanden ist
         [infoString appendString:@"Publisher"];
         [contentString appendString:book.publisher];
         hasPublisher = YES;
     }
+    
     if (book.year.length != 0) {
-#warning vllt doch ein if
-        [infoString appendFormat:hasPublisher ? @" (Year)" : @"Year"];
-        [contentString appendFormat:hasPublisher ? @" (%@)" : @"%@",book.year];
+        //Abfrage ob ein Jahr vorhanden ist
+        if (hasPublisher) {
+            //Unterscheidung des angefügten Strings
+            //je nachdem ob ein Publisher vorhanden ist
+            [infoString appendString:@" (Year)"];
+            [contentString appendFormat:@" (%@)",book.year];
+        } else {
+            [infoString appendString:@"Year"];
+            [contentString appendString:book.year];
+        }
+        hasYear = YES;
     }
+    
     [publishAndYearInfL setText:infoString];
-    [publishAndYearInfL setFrame:(CGRect){{25,subtitleYEnd+isSubtitle+10},CGSizeZero}];
+    [publishAndYearInfL setFrame:(CGRect){{25,subtitleYEnd+10},CGSizeZero}];
     [publishAndYearInfL sizeToFit];
     
     CGSize pubAYearSize = [contentString boundingRectWithSize:(CGSize){250,50} options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: publishAndYearLabel.font} context:nil].size;
-    CGRect pubAYearFrame = (CGRect){{25,publishAndYearInfL.frame.origin.y+publishAndYearInfL.frame.size.height},{ceilf(pubAYearSize.width),ceilf(pubAYearSize.height)}};
+    pubAYearSize = (CGSize){ceilf(pubAYearSize.width),ceilf(pubAYearSize.height)};
+    CGRect pubAYearFrame = (CGRect){{25,publishAndYearInfL.frame.origin.y+publishAndYearInfL.frame.size.height},pubAYearSize};
+    
     [publishAndYearLabel setText:contentString];
     [publishAndYearLabel setNumberOfLines:2];
-    
-    //NSLog(@"systemfon für label %f",[UIFont ]);
     [publishAndYearLabel setFrame:pubAYearFrame];
-
-    //[publishAndYearInfL setText:@""];
-    //[self setInfoLableSize:publishAndYearInfL WithOrigin:(CGPoint){25,subtitleYEnd}];
-    //[publishAndYearInfL setFrame:(CGRect){{25,subtitleLabel.frame.origin.y+subtitleLabel.frame.size.height},publishAndYearInfL.frame.size}];
 }
-
+/**
+ * Diese Methode Setzt die Autoren falls welche
+ * vorhanden sind, wenn nicht wird es nicht weiter
+ * dargestellt
+ */
 -(void)refreshAuthor
 {
     CGFloat publisherYEnd = publishAndYearLabel.frame.origin.y + publishAndYearLabel.frame.size.height;
@@ -254,7 +274,11 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     [authorsLabel setNumberOfLines:2];
     [authorsLabel setFrame:authorFrame];
 }
-
+/**
+ * Diese Methode Setzt den TextSnippet falls dieser
+ * vorhanden ist, wenn nicht wird es nicht weiter
+ * dargestellt
+ */
 -(void)refreshTextSnippet
 {
     CGFloat AuthorYEnd = authorsLabel.frame.origin.y + authorsLabel.frame.size.height;
@@ -270,7 +294,11 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     [snippetTextView sizeToFit];
     
 }
-
+/**
+ * Diese Methode Setzt das Vorschau Bild falls es
+ * vorhanden sind, wenn nicht wird es nicht weiter
+ * dargestellt
+ */
 -(void)refreshThumbnail
 {
     CGFloat snippetYEnd = snippetTextView.frame.origin.y + snippetTextView.frame.size.height;
@@ -294,7 +322,7 @@ NSString *const VDPUsedFontName = @"HelveticaNeue";
     //falls nicht vorhanden wird der View zeitweilig entfernt
 }
 
-#warning slide in and out
+#pragma mark - slide in and out
 /**
   * Diese Method lässt den View bei auf seinem SuperView erscheinen.
   */

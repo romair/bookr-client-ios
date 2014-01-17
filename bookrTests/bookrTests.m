@@ -66,14 +66,19 @@
 - (void)testVersionDetailPreView
 {
     XCTAssertNotNil(vDPV, @"VersionDetailPreView isn't initialized!");
-    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
-
-- (void)testVersionDetailPreViewAnimation
+- (void)testVersionDetailPreViewSlideInAnimation
+{
+    UIView *superView = [[UIView alloc] init];
+    [superView addSubview:vDPV];
+    XCTAssertFalse([vDPV hasAnitmation], @"had an Animation");
+    [vDPV slideIn];
+    XCTAssertTrue([vDPV hasAnitmation], @"ha no animation");
+}
+- (void)testVersionDetailPreViewSlideOutAnimation
 {
     XCTAssertFalse([vDPV hasAnitmation], @"Had an Animation");
     [vDPV slideOut];
     XCTAssertTrue([vDPV hasAnitmation], @"Had No Animation");
-    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 @end

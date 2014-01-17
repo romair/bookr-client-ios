@@ -101,7 +101,7 @@
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+    //#warning Incomplete method implementation.
     // Return the number of rows in the section.
     NSInteger count = [bookArray count];
     // fuer die Zeile "more" - falls nach mehr gesucht werden soll
