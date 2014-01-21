@@ -228,19 +228,21 @@
     UILabel * subTitle = [[UILabel alloc] init];
     UILabel * authors = [[UILabel alloc] init];
     
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:20];
+    
     [title setText:[superBook title]];
-    [title setFont:[UIFont fontWithName:@"Helvetica" size:20]];
-    [title setFrame:(CGRect){{15,10},[[title text] sizeWithFont:[title font]]}];
+    [title setFont:font];
+    [title setFrame:(CGRect){{15,10},[[title text] sizeWithAttributes:@{NSFontAttributeName: font}]}];
     
     [subTitle setText:[superBook subtitle]];
-    [subTitle setFont:[UIFont fontWithName:@"Helvetica" size:20]];
-    [subTitle setFrame:(CGRect){{15,35},[[subTitle text] sizeWithFont:[subTitle font]]}];
+    [subTitle setFont:font];
+    [subTitle setFrame:(CGRect){{15,35},[[subTitle text] sizeWithAttributes:@{NSFontAttributeName: font}]}];
     
     NSString * authorString = [BookrHelper generateStringForAuthors:superBook.authors];
     
     [authors setText:authorString];
-    [authors setFont:[UIFont fontWithName:@"Helvetica" size:20]];
-    [authors setFrame:(CGRect){{15,55},[[authors text] sizeWithFont:[authors font]]}];
+    [authors setFont:font];
+    [authors setFrame:(CGRect){{15,55},[[authors text] sizeWithAttributes:@{NSFontAttributeName: font}]}];
     
     [cellView addSubview:title];
     [cellView addSubview:subTitle];

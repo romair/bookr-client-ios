@@ -52,21 +52,11 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-    XCTAssertTrue (YES, @"hell yeah");
-}
-
-- (void)testSecond
-{
-    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
 - (void)testVersionDetailPreView
 {
     XCTAssertNotNil(vDPV, @"VersionDetailPreView isn't initialized!");
 }
+
 - (void)testVersionDetailPreViewSlideInAnimation
 {
     UIView *superView = [[UIView alloc] init];
@@ -75,6 +65,7 @@
     [vDPV slideIn];
     XCTAssertTrue([vDPV hasAnitmation], @"ha no animation");
 }
+
 - (void)testVersionDetailPreViewSlideOutAnimation
 {
     XCTAssertFalse([vDPV hasAnitmation], @"Had an Animation");
